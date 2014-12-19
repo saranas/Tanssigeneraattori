@@ -5,7 +5,10 @@ Toteutetaan ohjelma, jolla käyttäjä voi valita ja asettaa peräkkäin tanssil
 Käyttäjät: Ohjelmasta kiinnostuneet yksityishenkilöt
 
 Kaikkien käyttäjien toiminnot:
-
+-liikevalikoiman selaaminen
+-liikkeiden valinta ja lisääminen koreografiaan
+-tanssin nimen lisääminen
+-koreografian ja nimen satunnaisgenerointi
 
 
 
