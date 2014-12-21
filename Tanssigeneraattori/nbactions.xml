@@ -8,13 +8,14 @@
         </goals>
     </action>
     <action>
-    <actionName>CUSTOM-checkstyle</actionName>
-    <displayName>Checkstyle</displayName>
-    <goals>
-      <goal>jxr:jxr</goal>
-      <goal>checkstyle:checkstyle -Dcheckstyle.config.location=checkstyle.xml</goal>
-    </goals>
-  </action>
+        <actionName>CUSTOM-checkstyle</actionName>
+        <displayName>Checkstyle</displayName>
+        <goals>
+            <goal>jxr:jxr</goal>
+            <goal>checkstyle:checkstyle</goal>
+            <goal>-Dcheckstyle.config.location=checkstyle.xml</goal>
+        </goals>
+    </action>
     <action>
         <actionName>CUSTOM-pit</actionName>
         <displayName>pit</displayName>
