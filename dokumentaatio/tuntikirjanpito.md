@@ -2,4 +2,6 @@
 
 * 18.12. 3h alkuvalmisteluja
 * 19.12. 2h aloitusluento
+* 20.12. 2h rakenteen miettimistä ja luokkien runkoja
+* 21.12. 2h lisää samaa kuin eilen
 
