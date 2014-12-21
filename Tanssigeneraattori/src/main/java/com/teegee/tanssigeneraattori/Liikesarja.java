@@ -1,6 +1,6 @@
 package com.teegee.tanssigeneraattori;
 
-public class Liikesarja {
+public class Liikesarja implements Liike {
     private String nimi;
     private int kesto;
 

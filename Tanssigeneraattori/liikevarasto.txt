@@ -1,0 +1,4 @@
+ECD | double vasen | 4 | seisooPainoOikealla | seisooPainoVasemmalla
+ECD | double oikea | 4 | seisooPainoVasemmalla | seisooPainoOikealla
+ECD | simple vasen | 2 | seisooPainoOikealla | seisooPainoVasemmalla
+ECD | simple oikea | 2 | seisooPainoVasemmalla | seisooPainoOikealla
