@@ -22,22 +22,10 @@ public class Paaohjelma {
         Koreografia tanssi1 = new Koreografia("Jenkka");
 
         System.out.println(tanssi1);
-        Scanner lukija;
-
-        File tiedosto = new File("liikevarasto.txt");
-        try {
-            lukija = new Scanner(tiedosto);
-        } catch (Exception e) {
-            System.out.println("Tiedoston lukeminen epäonnistui. Virhe: " + e.getMessage());
-            return;
-        }
-
-        while (lukija.hasNextLine()) {
-            String rivi = lukija.nextLine();
-            System.out.println(rivi);
-        }
-
-        lukija.close();
+        
+        LiikevarastonKasittelija kasittelija = new LiikevarastonKasittelija();
+        kasittelija.lue();
+        
 
     }
 

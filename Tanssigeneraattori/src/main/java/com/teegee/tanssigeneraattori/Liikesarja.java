@@ -3,6 +3,8 @@ package com.teegee.tanssigeneraattori;
 public class Liikesarja implements Liike {
     private String nimi;
     private int kesto;
+    private String alkutila;
+    private String lopputila;
 
     public String getNimi() {
         return nimi;
