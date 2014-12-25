@@ -7,4 +7,5 @@
 * 22.12. 1h luokkakaavion puhtaaksipiirtäminen, testien valmistelua
 
 * 24.12. 1h koodausta
+* 25.12. 2h testien ja liikevarastonkäsittelijän kanssa säätämistä
 

@@ -5,6 +5,9 @@
  */
 package teegeetestit;
 
+import com.teegee.tanssigeneraattori.Liikesarja;
+import com.teegee.tanssigeneraattori.LiikevarastonKasittelija;
+import static org.hamcrest.CoreMatchers.is;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,28 +21,31 @@ import static org.junit.Assert.*;
  */
 public class LiikevarastonKasittelijaTest {
     
-    public LiikevarastonKasittelijaTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+    LiikevarastonKasittelija kasittelija;
     
     @Before
     public void setUp() {
+        kasittelija = new LiikevarastonKasittelija("liikevarasto.txt");
     }
     
-    @After
-    public void tearDown() {
+    @Test
+    public void annaLiikevalikoimaPalauttaaTyhjanArrayListin() {
+        assertThat(kasittelija.annaLiikevalikoima().size(), is(0));       
+    }
+    
+    @Test
+    public void kasittelijanArrayListiinVoiLisataKamaa() {
+        kasittelija.annaLiikevalikoima().add(new Liikesarja("ECD",
+                "heinä", "3", "seisooPainoOikealla", "seisooPainoOikealla"));
+        assertThat(kasittelija.annaLiikevalikoima().size(), is(1));       
+    }
+    
+    @Test
+    public void kasittelijanArrayLististaVoiHakeaKamaa() {
+        kasittelija.annaLiikevalikoima().add(new Liikesarja("ECD",
+                "heinä", "3", "seisooPainoOikealla", "seisooPainoOikealla"));
+        assertEquals(kasittelija.annaLiikevalikoima().get(0).getTanssilaji(), "ECD");       
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+ 
 }

@@ -3,11 +3,11 @@ package com.teegee.tanssigeneraattori;
 public class Liikesarja implements Liike {
     private String tanssilaji;
     private String nimi;
-    private int kesto;
+    private String kesto;
     private String alkutila;
     private String lopputila;
     
-    public Liikesarja(String tanssilaji, String nimi, int kesto, String alkutila, String lopputila) {
+    public Liikesarja(String tanssilaji, String nimi, String kesto, String alkutila, String lopputila) {
         this.tanssilaji = tanssilaji;
         this. nimi = nimi;
         this.kesto = kesto;
@@ -15,11 +15,15 @@ public class Liikesarja implements Liike {
         this.lopputila = lopputila;
     }
 
+    public String getTanssilaji() {
+        return tanssilaji;
+    }
+
     public String getNimi() {
         return nimi;
     }
 
-    public int getKesto() {
+    public String getKesto() {
         return kesto;
     }
 
@@ -27,14 +31,12 @@ public class Liikesarja implements Liike {
         this.nimi = nimi;
     }
 
-    public void setKesto(int kesto) {
-        this.kesto = kesto;
-    }
-
     @Override
     public String toString() {
-        return "Liike{" + "nimi=" + nimi + ", kesto=" + kesto + '}';
+        return this.tanssilaji + this.nimi + this.kesto + this.alkutila + this.lopputila;
     }
+
+    
     
 
 }
