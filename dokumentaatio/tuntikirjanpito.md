@@ -8,4 +8,5 @@
 
 * 24.12. 1h koodausta
 * 25.12. 2h testien ja liikevarastonkäsittelijän kanssa säätämistä
+* 25.12. 2h koreografia-luokkaa ja tekstikäliä
 

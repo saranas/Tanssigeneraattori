@@ -29,27 +29,34 @@ public class LiikevarastonKasittelija {
         }
 
         while (lukija.hasNextLine()) {
-            String rivi = lukija.nextLine();           
+            String rivi = lukija.nextLine();
 
             String[] splitattuRivi = rivi.split("\\|");
-            for (String kohta : splitattuRivi) {
-                kohta = kohta.trim();
-            }
+            String[] trimmattuRivi = new String[splitattuRivi.length];
             
+            for (int i = 0; i < splitattuRivi.length; i++) {
+                trimmattuRivi[i] = splitattuRivi[i].trim().toLowerCase();
+            }
+
             Liikesarja liikesarja = new Liikesarja(
-                    splitattuRivi[0], splitattuRivi[1],
-                    splitattuRivi[2],
-                    splitattuRivi[3], splitattuRivi[4]);
+                    trimmattuRivi[0], trimmattuRivi[1],
+                    trimmattuRivi[2],
+                    trimmattuRivi[3], trimmattuRivi[4]);
 
             this.liikevalikoima.add(liikesarja);
-            System.out.println();
-            //System.out.println(liikevalikoima.size());
-            //System.out.println(splitattuRivi[1]);
-            //System.out.println(liikesarja.getNimi());
         }
 
         lukija.close();
-        System.out.println(this.liikevalikoima.size());
+        System.out.println();
+    }
+
+    public void esitteleLiikkeet() {
+        if (this.annaLiikevalikoima() != null) {
+            for (Liikesarja liikesarja : this.annaLiikevalikoima()) {
+                System.out.println(liikesarja.getNimi() + 
+                        " (" + liikesarja.getKesto() + ")");
+            }
+        }
     }
 
 }
