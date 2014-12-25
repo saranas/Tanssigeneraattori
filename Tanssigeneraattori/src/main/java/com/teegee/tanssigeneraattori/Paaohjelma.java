@@ -19,13 +19,26 @@ public class Paaohjelma {
      */
     public static void main(String[] args) {
 
-        Koreografia tanssi1 = new Koreografia("Jenkka");
+        Scanner lukija = new Scanner(System.in);
+        System.out.println("Valikoimassamme on seuraavat tanssilajit: \n"
+                //TODO: lukee tiedostosta mitä vaihtoehtoja on olemassa ja panee ne tähän
+                + "ECD \n"
+                + "Anna tanssilaji: ");
+        String tanssilaji = lukija.nextLine();
+        tanssilaji = tanssilaji.trim();
+        tanssilaji = tanssilaji.toUpperCase();
+
+        if (tanssilaji.equals("ECD")) {
+            LiikevarastonKasittelija kasittelija = new LiikevarastonKasittelija("liikevarasto.txt");
+            kasittelija.lue();
+        } else {
+            System.out.println("Antamaasi tanssilajia ei löytynyt. Anna toinen: ");
+            
+        }
+
+        Koreografia tanssi1 = new Koreografia(tanssilaji);
 
         System.out.println(tanssi1);
-        
-        LiikevarastonKasittelija kasittelija = new LiikevarastonKasittelija();
-        kasittelija.lue();
-        
 
     }
 

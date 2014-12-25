@@ -6,5 +6,5 @@
 * 21.12. 2h lisää samaa kuin eilen + 2h checkstylen kanssa säätämistä
 * 22.12. 1h luokkakaavion puhtaaksipiirtäminen, testien valmistelua
 
-
+* 24.12. 1h koodausta
 
