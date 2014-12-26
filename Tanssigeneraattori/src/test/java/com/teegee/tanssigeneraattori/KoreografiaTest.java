@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package teegeetestit;
+package com.teegee.tanssigeneraattori;
 
 import com.teegee.tanssigeneraattori.Koreografia;
 import com.teegee.tanssigeneraattori.Liikesarja;

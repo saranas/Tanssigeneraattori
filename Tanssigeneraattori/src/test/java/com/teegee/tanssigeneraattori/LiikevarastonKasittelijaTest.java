@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package teegeetestit;
+package com.teegee.tanssigeneraattori;
 
 import com.teegee.tanssigeneraattori.Liikesarja;
 import com.teegee.tanssigeneraattori.LiikevarastonKasittelija;
@@ -45,6 +45,12 @@ public class LiikevarastonKasittelijaTest {
         kasittelija.annaLiikevalikoima().add(new Liikesarja("ECD",
                 "heinä", "3", "seisooPainoOikealla", "seisooPainoOikealla"));
         assertEquals(kasittelija.annaLiikevalikoima().get(0).getTanssilaji(), "ECD");       
+    }
+    
+    @Test
+    public void lueMetodiLisaaLiikkeitaArrayListiin() {
+        kasittelija.lue();
+        assertThat(kasittelija.annaLiikevalikoima().size(), is(4));
     }
 
  

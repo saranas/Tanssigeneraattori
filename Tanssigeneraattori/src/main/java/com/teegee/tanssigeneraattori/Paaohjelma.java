@@ -2,16 +2,12 @@ package com.teegee.tanssigeneraattori;
 
 import java.io.File;
 import java.util.Scanner;
-
 /**
  *
  * @author Akkanen
  */
 public class Paaohjelma {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
 
         Scanner lukija = new Scanner(System.in);
