@@ -33,7 +33,7 @@ public class LiikevarastonKasittelija {
 
             String[] splitattuRivi = rivi.split("\\|");
             String[] trimmattuRivi = new String[splitattuRivi.length];
-            
+
             for (int i = 0; i < splitattuRivi.length; i++) {
                 trimmattuRivi[i] = splitattuRivi[i].trim().toLowerCase();
             }
@@ -50,11 +50,13 @@ public class LiikevarastonKasittelija {
         System.out.println();
     }
 
-    public void esitteleLiikkeet() {
+    public void esitteleLiikkeet(String tanssilaji) {
         if (this.annaLiikevalikoima() != null) {
             for (Liikesarja liikesarja : this.annaLiikevalikoima()) {
-                System.out.println(liikesarja.getNimi() + 
-                        " (" + liikesarja.getKesto() + ")");
+                if (liikesarja.getTanssilaji().equals(tanssilaji)) {
+                    System.out.println(liikesarja.getNimi()
+                            + " (" + liikesarja.getKesto() + ")");
+                }
             }
         }
     }

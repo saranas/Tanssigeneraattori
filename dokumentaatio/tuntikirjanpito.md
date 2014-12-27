@@ -9,4 +9,6 @@
 * 24.12. 1h koodausta
 * 25.12. 2h testien ja liikevarastonkäsittelijän kanssa säätämistä
 * 25.12. 2h koreografia-luokkaa ja tekstikäliä
+* 27.12. 1,5h koodikatselmointia
+* 27.12. 3h tulostusten pyörittelyä
 

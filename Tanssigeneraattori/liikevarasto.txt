@@ -1,4 +1,6 @@
-ECD | doubleVasen | 4 | seisooPainoOikealla | seisooPainoVasemmalla
-ECD | doubleOikea | 4 | seisooPainoVasemmalla | seisooPainoOikealla
-ECD | simpleVasen | 2 | seisooPainoOikealla | seisooPainoVasemmalla
-ECD | simpleOikea | 2 | seisooPainoVasemmalla | seisooPainoOikealla
+ecd | doubleVasen | 4 | seisooPainoOikealla | seisooPainoVasemmalla
+ecd | doubleOikea | 4 | seisooPainoVasemmalla | seisooPainoOikealla
+ecd | simpleVasen | 2 | seisooPainoOikealla | seisooPainoVasemmalla
+ecd | simpleOikea | 2 | seisooPainoVasemmalla | seisooPainoOikealla
+parapara | koputusOikea | 2 | seisooPainoVasemmalla | seisooPainoOikealla
+parapara | fullsweepOikea | 2 | seisooPainoVasemmalla | seisooPainoOikealla
