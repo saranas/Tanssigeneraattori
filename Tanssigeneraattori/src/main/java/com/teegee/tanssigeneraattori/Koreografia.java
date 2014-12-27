@@ -29,27 +29,20 @@ public class Koreografia {
         for (int i = 0; i < liikkeet.size(); i++) {
             if (i % 2 != 0 || i == 1) {
                 koreografiaTekstina = koreografiaTekstina.concat(this.liikkeet.get(i).getNimi());
+                koreografiaTekstina = koreografiaTekstina.concat("\n");
             } else {
                 koreografiaTekstina = koreografiaTekstina.concat(this.liikkeet.get(i).getNimi());
+                koreografiaTekstina = koreografiaTekstina.concat(" ");
             }
         }
+        koreografiaTekstina = koreografiaTekstina.concat("\nTanssin kesto " + this.tanssinKesto() + " iskua");
         return koreografiaTekstina;
         
     }
 
-    //Allaoleva metodi muuttunee tarpeettomaksi, jos saan tehtyä graafisen 
-    //käyttöliittymän. Siinä on paljon päällekkäisyyttä 
-    //ylläolevan kanssa.
     public void tulostaKoreografia() {
         System.out.println();
-        for (int i = 0; i < liikkeet.size(); i++) {
-            if (i % 2 != 0 || i == 1) {
-                System.out.println(this.liikkeet.get(i).getNimi());
-            } else {
-                System.out.print(this.liikkeet.get(i).getNimi() + " ");
-            }
-        }
-        System.out.println("\nTanssin kesto " + this.tanssinKesto() + " iskua");
+        System.out.println(this.annaKoreografiaTekstina());
         System.out.println();
     }
 

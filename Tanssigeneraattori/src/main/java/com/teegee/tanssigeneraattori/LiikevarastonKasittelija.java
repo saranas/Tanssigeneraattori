@@ -14,6 +14,16 @@ public class LiikevarastonKasittelija {
         this.tiedosto = new File(annettuTiedosto);
         this.liikevalikoima = new ArrayList<Liikesarja>();
     }
+    
+    public String annaTanssilajitTekstina() {
+        String tanssilajit = "";
+        for (Liikesarja l : this.liikevalikoima) {
+            //System.out.println(l.getTanssilaji());
+            tanssilajit = tanssilajit.concat(l.getTanssilaji());
+            tanssilajit = tanssilajit.concat("\n");
+        }
+        return tanssilajit;
+    }
 
     public ArrayList<Liikesarja> annaLiikevalikoima() {
         return this.liikevalikoima;
@@ -50,15 +60,5 @@ public class LiikevarastonKasittelija {
         System.out.println();
     }
 
-    public void esitteleLiikkeet(String tanssilaji) {
-        if (this.annaLiikevalikoima() != null) {
-            for (Liikesarja liikesarja : this.annaLiikevalikoima()) {
-                if (liikesarja.getTanssilaji().equals(tanssilaji)) {
-                    System.out.println(liikesarja.getNimi()
-                            + " (" + liikesarja.getKesto() + ")");
-                }
-            }
-        }
-    }
 
 }
