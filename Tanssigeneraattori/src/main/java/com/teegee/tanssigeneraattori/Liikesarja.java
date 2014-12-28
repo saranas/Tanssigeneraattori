@@ -1,21 +1,21 @@
 package com.teegee.tanssigeneraattori;
 
+import java.util.ArrayList;
+
 public class Liikesarja implements Liike {
-    private String tanssilaji;
+
+    private Tanssilaji tanssilaji;
     private String nimi;
-    private String kesto;
-    private String alkutila;
-    private String lopputila;
-    
-    public Liikesarja(String tanssilaji, String nimi, String kesto, String alkutila, String lopputila) {
+    private ArrayList<Liike> liikkeet;
+    public static Tila TYHJA_TILA = new Tila("tyhja");
+
+    public Liikesarja(Tanssilaji tanssilaji, String nimi) {
         this.tanssilaji = tanssilaji;
-        this. nimi = nimi;
-        this.kesto = kesto;
-        this.alkutila = alkutila;
-        this.lopputila = lopputila;
+        this.nimi = nimi;
+        this.liikkeet = new ArrayList<Liike>();
     }
 
-    public String getTanssilaji() {
+    public Tanssilaji getTanssilaji() {
         return tanssilaji;
     }
 
@@ -23,8 +23,12 @@ public class Liikesarja implements Liike {
         return nimi;
     }
 
-    public String getKesto() {
-        return kesto;
+    public int getKesto() {
+        int kestoYhteensa = 0;
+            for (Liike liike : this.liikkeet) {
+                kestoYhteensa += liike.getKesto();
+            }
+        return kestoYhteensa;
     }
 
     public void setNimi(String nimi) {
@@ -33,10 +37,48 @@ public class Liikesarja implements Liike {
 
     @Override
     public String toString() {
-        return this.tanssilaji + this.nimi + this.kesto + this.alkutila + this.lopputila;
+        return this.tanssilaji + this.nimi + this.getKesto()
+                + this.getAlkutila() + this.getLopputila();
     }
 
+    @Override
+    public Tila getAlkutila() {
+        if (liikkeet.isEmpty()) {
+            return TYHJA_TILA;
+        } else {
+            return liikkeet.get(0).getAlkutila();
+        }
+    }
+
+    @Override
+    public Tila getLopputila() {
+        if (liikkeet.isEmpty()) {
+            return TYHJA_TILA;
+        } else {
+            return liikkeet.get(liikkeet.size() - 1).getLopputila();
+        }
+    }
+
+    public boolean lisaaLiike(Liike liike) {
+        
+        if (liikkeet.isEmpty()) {
+            liikkeet.add(liike);
+            return true;
+        }
+        
+        Tila alkutila = liike.getAlkutila();
+        if (alkutila.equals(this.getLopputila())) {
+            liikkeet.add(liike);
+            return true;
+        }
+        return false;
+    }
     
-    
+    public Liike poistaViimeisinLiike() {
+        if (!liikkeet.isEmpty()) {
+            return liikkeet.remove(liikkeet.size()-1);
+        }
+        return null;
+    }
 
 }

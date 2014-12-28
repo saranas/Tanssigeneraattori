@@ -15,12 +15,13 @@ public class LiikevarastonKasittelija {
         this.liikevalikoima = new ArrayList<Liikesarja>();
     }
     
-    public String annaTanssilajitTekstina() {
-        String tanssilajit = "";
-        for (Liikesarja l : this.liikevalikoima) {
-            //System.out.println(l.getTanssilaji());
-            tanssilajit = tanssilajit.concat(l.getTanssilaji());
-            tanssilajit = tanssilajit.concat("\n");
+    public ArrayList<String> annaTanssilajit() {
+        ArrayList<String> tanssilajit;
+        tanssilajit = new ArrayList<String>();
+        for (Liikesarja l : this.annaLiikevalikoima()) {
+            if (!tanssilajit.contains(l.getTanssilaji())) {
+                tanssilajit.add(l.getTanssilaji());
+            }
         }
         return tanssilajit;
     }

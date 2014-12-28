@@ -50,7 +50,13 @@ public class LiikevarastonKasittelijaTest {
     @Test
     public void lueMetodiLisaaLiikkeitaArrayListiin() {
         kasittelija.lue();
-        assertThat(kasittelija.annaLiikevalikoima().size(), is(4));
+        assertThat(kasittelija.annaLiikevalikoima().size(), is(7));
+    }
+    
+    @Test
+    public void annaTanssilajitAntaaListan() {
+        kasittelija.lue();
+        assertThat(kasittelija.annaTanssilajit().size(), is(2));
     }
 
  

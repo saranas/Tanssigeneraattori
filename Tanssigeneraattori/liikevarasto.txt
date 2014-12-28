@@ -2,5 +2,6 @@ ecd | doubleVasen | 4 | seisooPainoOikealla | seisooPainoVasemmalla
 ecd | doubleOikea | 4 | seisooPainoVasemmalla | seisooPainoOikealla
 ecd | simpleVasen | 2 | seisooPainoOikealla | seisooPainoVasemmalla
 ecd | simpleOikea | 2 | seisooPainoVasemmalla | seisooPainoOikealla
+ecd | sidingVasen | 8 | seisooPainoVasemmalla | seisooPainoVasemmalla
 parapara | koputusOikea | 2 | seisooPainoVasemmalla | seisooPainoOikealla
 parapara | fullsweepOikea | 2 | seisooPainoVasemmalla | seisooPainoOikealla

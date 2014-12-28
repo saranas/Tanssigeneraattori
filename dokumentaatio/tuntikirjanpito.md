@@ -12,4 +12,5 @@
 * 27.12. 1,5h koodikatselmointia
 * 27.12. 5h tulostusten pyörittelyä
 * 28.12. 2h siivousta ja refaktorointia
+* 28.12. 4h refaktorointia ja testejä
 
