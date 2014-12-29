@@ -43,18 +43,18 @@ public class LiikevarastonKasittelija {
             String rivi = lukija.nextLine();
 
             String[] splitattuRivi = rivi.split("\\|");
-            String[] trimmattuRivi = new String[splitattuRivi.length];
-
-            for (int i = 0; i < splitattuRivi.length; i++) {
-                trimmattuRivi[i] = splitattuRivi[i].trim().toLowerCase();
-            }
+            
+            Tanssilaji laji = new Tanssilaji(splitattuRivi[0].trim().toLowerCase());
+            String liikkeenNimi = splitattuRivi[1].trim().toLowerCase();
+            int kesto = Integer.parseInt(splitattuRivi[2].trim());
+            Tila alkutila = new Tila(splitattuRivi[3].trim().toLowerCase());
+            Tila lopputila = new Tila(splitattuRivi[4].trim().toLowerCase());
 
             LiikeElementti liikeEle = new LiikeElementti(
-                    trimmattuRivi[0], trimmattuRivi[1],
-                    trimmattuRivi[2],
-                    trimmattuRivi[3], trimmattuRivi[4]);
+                    laji, liikkeenNimi, kesto,
+                    alkutila, lopputila);
 
-            this.liikevalikoima.add(liike);
+            this.liikevalikoima.add(liikeEle);
         }
 
         lukija.close();

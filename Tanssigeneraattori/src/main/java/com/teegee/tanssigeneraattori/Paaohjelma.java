@@ -18,11 +18,11 @@ public class Paaohjelma {
         kasittelija.lue();
 
         tekstikali.esitteleTanssilajit();
-        String tanssilaji = tekstikali.pyydaTanssilajia();
+        Tanssilaji tanssilaji = tekstikali.pyydaTanssilajia();
         tekstikali.esitteleLiikkeet(tanssilaji);
 
         tekstikali.pyydaKoreografianNimea();
-        tekstikali.lisaaLiikkeita();
+        tekstikali.lisaaLiikkeitaKoreografiaan();
         tekstikali.kysyTallennetaanko();
 
     }

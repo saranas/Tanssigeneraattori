@@ -5,33 +5,33 @@ import java.util.ArrayList;
 public class Koreografia {
 
     private String nimi;
-    private ArrayList<Liikesarja> liikkeet;
+    private ArrayList<Liike> koreografianLiikkeet;
 
     public Koreografia(String nimi) {
         this.nimi = nimi;
-        this.liikkeet = new ArrayList<Liikesarja>();
+        this.koreografianLiikkeet = new ArrayList<Liike>();
     }
 
-    public ArrayList<Liikesarja> getLiikkeet() {
-        return this.liikkeet;
+    public ArrayList<Liike> getKoreografianLiikkeet() {
+        return this.koreografianLiikkeet;
     }
 
     public int tanssinKesto() {
         int kestoYhteensa = 0;
-        for (Liikesarja liikesarja : this.liikkeet) {
-            kestoYhteensa += Integer.parseInt(liikesarja.getKesto());
+        for (Liike liike : this.koreografianLiikkeet) {
+            kestoYhteensa += liike.getKesto();
         }
         return kestoYhteensa;
     }
     
     public String annaKoreografiaTekstina() {
         String koreografiaTekstina = this.getNimi() + "\n\n";
-        for (int i = 0; i < liikkeet.size(); i++) {
+        for (int i = 0; i < koreografianLiikkeet.size(); i++) {
             if (i % 2 != 0 || i == 1) {
-                koreografiaTekstina = koreografiaTekstina.concat(this.liikkeet.get(i).getNimi());
+                koreografiaTekstina = koreografiaTekstina.concat(this.koreografianLiikkeet.get(i).getNimi());
                 koreografiaTekstina = koreografiaTekstina.concat("\n");
             } else {
-                koreografiaTekstina = koreografiaTekstina.concat(this.liikkeet.get(i).getNimi());
+                koreografiaTekstina = koreografiaTekstina.concat(this.koreografianLiikkeet.get(i).getNimi());
                 koreografiaTekstina = koreografiaTekstina.concat(" ");
             }
         }

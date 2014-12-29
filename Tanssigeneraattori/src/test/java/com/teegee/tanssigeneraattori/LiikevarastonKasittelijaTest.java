@@ -22,41 +22,36 @@ import static org.junit.Assert.*;
 public class LiikevarastonKasittelijaTest {
     
     LiikevarastonKasittelija kasittelija;
+    LiikeElementti liikeEle;
+    Tanssilaji laji;
+    Tila alkutila;
+    Tila lopputila;
     
     @Before
     public void setUp() {
         kasittelija = new LiikevarastonKasittelija("liikevarasto.txt");
+        laji = new Tanssilaji("laji");
+        alkutila = new Tila("alkutila");
+        lopputila = new Tila("lopputila");
+        liikeEle = new LiikeElementti(laji, "ele", 1, alkutila, lopputila);
     }
     
     @Test
-    public void annaLiikevalikoimaPalauttaaTyhjanArrayListin() {
-        assertThat(kasittelija.annaLiikevalikoima().size(), is(0));       
+    public void alkuasetuksetOikein() {
+        assertTrue(kasittelija.annaLiikevalikoima().isEmpty()); 
+        assertTrue(kasittelija.annaTanssilajit().isEmpty()); 
     }
     
     @Test
-    public void kasittelijanArrayListiinVoiLisataKamaa() {
-        kasittelija.annaLiikevalikoima().add(new Liikesarja("ECD",
-                "heinä", "3", "seisooPainoOikealla", "seisooPainoOikealla"));
-        assertThat(kasittelija.annaLiikevalikoima().size(), is(1));       
-    }
-    
-    @Test
-    public void kasittelijanArrayLististaVoiHakeaKamaa() {
-        kasittelija.annaLiikevalikoima().add(new Liikesarja("ECD",
-                "heinä", "3", "seisooPainoOikealla", "seisooPainoOikealla"));
-        assertEquals(kasittelija.annaLiikevalikoima().get(0).getTanssilaji(), "ECD");       
-    }
-    
-    @Test
-    public void lueMetodiLisaaLiikkeitaArrayListiin() {
+    public void lueMetodiLisaaLiikkeitaLiikevalikoimaan() {
         kasittelija.lue();
-        assertThat(kasittelija.annaLiikevalikoima().size(), is(7));
+        assertFalse(kasittelija.annaLiikevalikoima().isEmpty());
     }
     
     @Test
     public void annaTanssilajitAntaaListan() {
         kasittelija.lue();
-        assertThat(kasittelija.annaTanssilajit().size(), is(2));
+        assertFalse(kasittelija.annaTanssilajit().isEmpty());
     }
 
  

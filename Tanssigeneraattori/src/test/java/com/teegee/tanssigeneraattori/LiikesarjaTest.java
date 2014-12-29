@@ -24,7 +24,7 @@ public class LiikesarjaTest {
         lopputila = new Tila("lopputila");
         ele = new LiikeElementti(laji, "LiikeElementti", 1, alkutila, lopputila);
         toinenEle = new LiikeElementti(laji, "LiikeElementti2", 2, lopputila, alkutila);
-        liikesarja = new Liikesarja(laji, "Arming");
+        liikesarja = new Liikesarja(laji, "jokuLiikesarja");
     }
 
     @Test

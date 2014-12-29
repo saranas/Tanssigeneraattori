@@ -18,13 +18,18 @@ import static org.junit.Assert.*;
  */
 public class KoreografiaTest {
     Koreografia koreografia;
-    Liikesarja liike;
+    LiikeElementti liikeEle;
+    Tanssilaji laji;
+    Tila alkutila;
+    Tila lopputila;
     
     @Before
     public void setUp() {
-        this.koreografia = new Koreografia("Goddesses");
-        this.liike = new Liikesarja("ECD", "heinä",
-                "3", "seisooPainoOikealla", "seisooPainoOikealla");
+        this.koreografia = new Koreografia("Testikoreografia");
+        laji = new Tanssilaji("laji");
+        alkutila = new Tila("alkutila");
+        lopputila = new Tila("lopputila");
+        liikeEle = new LiikeElementti(laji, "ele", 1, alkutila, lopputila);
     }
 
     @Test
@@ -34,7 +39,7 @@ public class KoreografiaTest {
     
     @Test
     public void tanssinkestoKasvaaKunLiikkeitaLisataan() {
-        this.koreografia.getLiikkeet().add(liike);
-        assertEquals(this.koreografia.tanssinKesto(), 3);
+        this.koreografia.getKoreografianLiikkeet().add(liikeEle);
+        assertEquals(this.koreografia.tanssinKesto(), liikeEle.getKesto());
     }
 }
