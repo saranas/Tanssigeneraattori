@@ -14,5 +14,5 @@
 * 28.12. 2h siivousta ja refaktorointia
 * 28.12. 4h refaktorointia ja testejä
 
-* 29.12. 
+* 29.12. 3h refaktorointia, testejä ja javadocin ihmettelyä
 
