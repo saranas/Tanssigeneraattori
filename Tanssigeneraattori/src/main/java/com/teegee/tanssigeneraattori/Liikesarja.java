@@ -22,7 +22,11 @@ public class Liikesarja implements Liike {
     public String getNimi() {
         return nimi;
     }
-
+    
+    /**
+     * 
+     * @return int Palauttaa Liikesarjan liikkeiden yhteiskeston
+     */
     public int getKesto() {
         int kestoYhteensa = 0;
             for (Liike liike : this.liikkeet) {
@@ -58,7 +62,15 @@ public class Liikesarja implements Liike {
             return liikkeet.get(liikkeet.size() - 1).getLopputila();
         }
     }
-
+    
+    /**
+     * Metodi lisää Liike-olion Liikesarja-luokan liikkeet-listaan, mutta vain jos
+     * listan viimeisen liikkeen lopputila ja lisättävän liikkeen alkutila
+     * ovat yhteensopivat.
+     * 
+     * @param liike 
+     * @return boolean Palauttaa true tai false sen mukaan onnistuiko lisäys
+     */
     public boolean lisaaLiike(Liike liike) {
         
         if (liikkeet.isEmpty()) {
@@ -74,6 +86,11 @@ public class Liikesarja implements Liike {
         return false;
     }
     
+    /**
+     * Metodi poistaa Liikesarjan liikkeet-listan viimeisen Liike-olion
+     * 
+     * @return 
+     */
     public Liike poistaViimeisinLiike() {
         if (!liikkeet.isEmpty()) {
             return liikkeet.remove(liikkeet.size()-1);
