@@ -8,17 +8,17 @@ public class LiikevarastonKasittelija {
 
     private Scanner lukija;
     private File tiedosto;
-    private ArrayList<Liikesarja> liikevalikoima;
+    private ArrayList<Liike> liikevalikoima;
 
     public LiikevarastonKasittelija(String annettuTiedosto) {
         this.tiedosto = new File(annettuTiedosto);
-        this.liikevalikoima = new ArrayList<Liikesarja>();
+        this.liikevalikoima = new ArrayList<Liike>();
     }
     
-    public ArrayList<String> annaTanssilajit() {
-        ArrayList<String> tanssilajit;
-        tanssilajit = new ArrayList<String>();
-        for (Liikesarja l : this.annaLiikevalikoima()) {
+    public ArrayList<Tanssilaji> annaTanssilajit() {
+        ArrayList<Tanssilaji> tanssilajit;
+        tanssilajit = new ArrayList<Tanssilaji>();
+        for (Liike l : this.annaLiikevalikoima()) {
             if (!tanssilajit.contains(l.getTanssilaji())) {
                 tanssilajit.add(l.getTanssilaji());
             }
@@ -26,7 +26,7 @@ public class LiikevarastonKasittelija {
         return tanssilajit;
     }
 
-    public ArrayList<Liikesarja> annaLiikevalikoima() {
+    public ArrayList<Liike> annaLiikevalikoima() {
         return this.liikevalikoima;
     }
 
@@ -49,12 +49,12 @@ public class LiikevarastonKasittelija {
                 trimmattuRivi[i] = splitattuRivi[i].trim().toLowerCase();
             }
 
-            Liikesarja liikesarja = new Liikesarja(
+            LiikeElementti liikeEle = new LiikeElementti(
                     trimmattuRivi[0], trimmattuRivi[1],
                     trimmattuRivi[2],
                     trimmattuRivi[3], trimmattuRivi[4]);
 
-            this.liikevalikoima.add(liikesarja);
+            this.liikevalikoima.add(liike);
         }
 
         lukija.close();
