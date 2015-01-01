@@ -3,10 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.teegee.tanssigeneraattori;
+package liikkeidenmallinnus;
 
-import com.teegee.tanssigeneraattori.Liikesarja;
-import com.teegee.tanssigeneraattori.LiikevarastonKasittelija;
+import liikkeidenmallinnus.LiikeElementti;
+import liikkeidenmallinnus.LiikeElementti;
+import liikkeidenmallinnus.Tila;
+import liikkeidenmallinnus.Tanssilaji;
+import liikkeidenmallinnus.Liikesarja;
+import liikkeidenmallinnus.Tanssilaji;
+import liikkeidenmallinnus.Tila;
+import liikkeidenmallinnus.LiikevarastonKasittelija;
 import static org.hamcrest.CoreMatchers.is;
 import org.junit.After;
 import org.junit.AfterClass;

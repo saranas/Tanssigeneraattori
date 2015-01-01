@@ -3,10 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.teegee.tanssigeneraattori;
+package liikkeidenmallinnus;
 
-import com.teegee.tanssigeneraattori.Koreografia;
-import com.teegee.tanssigeneraattori.Liikesarja;
+import liikkeidenmallinnus.LiikeElementti;
+import liikkeidenmallinnus.Tila;
+import liikkeidenmallinnus.Tanssilaji;
+import liikkeidenmallinnus.Koreografia;
+import liikkeidenmallinnus.Liikesarja;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

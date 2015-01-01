@@ -1,8 +1,18 @@
-package com.teegee.tanssigeneraattori;
+package tekstikayttoliittyma;
 
+import liikkeidenmallinnus.LiikevarastonKasittelija;
 import java.util.ArrayList;
 import java.util.Scanner;
+import liikkeidenmallinnus.Koreografia;
+import liikkeidenmallinnus.Liike;
+import liikkeidenmallinnus.Tanssilaji;
 
+/**
+ * Luokka vastaa käyttäjän kanssa kommunikoimisesta.
+ * Luokka esittelee liikkeet ja käsittelee käyttäjän syötteitä. 
+ * 
+ * @author Akkanen
+ */
 public class Tekstikayttoliittyma {
 
     private LiikevarastonKasittelija kasittelija;
@@ -97,7 +107,7 @@ public class Tekstikayttoliittyma {
             if (tallennetaanko.equals("y")) {
 
                 String tallennettavanTiedostonNimi = this.uusiKoreografia.getNimi();
-                tallennettavanTiedostonNimi = tallennettavanTiedostonNimi.concat(".txt");
+                tallennettavanTiedostonNimi = tallennettavanTiedostonNimi + ".txt";
                 String koreografianSisalto = this.uusiKoreografia.annaKoreografiaTekstina();
                 this.tallentaja = new Tallentaja();
 

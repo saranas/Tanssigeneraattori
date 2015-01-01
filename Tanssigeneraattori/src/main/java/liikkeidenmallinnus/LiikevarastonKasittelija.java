@@ -1,9 +1,20 @@
-package com.teegee.tanssigeneraattori;
+package liikkeidenmallinnus;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
+import liikkeidenmallinnus.Liike;
+import liikkeidenmallinnus.LiikeElementti;
+import liikkeidenmallinnus.Tanssilaji;
+import liikkeidenmallinnus.Tila;
 
+/**
+ * Luokka lukee tiedostoa, johon informaatio eri 
+ * tanssiliikkeistä on tallennettu, ja antaa informaation
+ * eteenpäin.
+ * 
+ * @author Akkanen
+ */
 public class LiikevarastonKasittelija {
 
     private Scanner lukija;
@@ -15,6 +26,12 @@ public class LiikevarastonKasittelija {
         this.liikevalikoima = new ArrayList<Liike>();
     }
     
+    /**
+     * Metodi palauttaa listan siitä, mitä eri tanssilajeja
+     * säiliötiedoston liikkeet edustavat.
+     * 
+     * @return 
+     */
     public ArrayList<Tanssilaji> annaTanssilajit() {
         ArrayList<Tanssilaji> tanssilajit;
         tanssilajit = new ArrayList<Tanssilaji>();
@@ -25,11 +42,23 @@ public class LiikevarastonKasittelija {
         }
         return tanssilajit;
     }
-
+    
+    /**
+     * Metodi palauttaa säiliötiedoston kohdat listana
+     * Liike-olioita.
+     * 
+     * @return 
+     */
     public ArrayList<Liike> annaLiikevalikoima() {
         return this.liikevalikoima;
     }
-
+    
+    /**
+     * Metodi lukee liikevarasto-tiedostoa. Metodi muuntaa 
+     * tiedostossa olevien liikkeiden ominaisuudet sopivan-
+     * tyyppisiksi, ja luo niiden perusteella uusia Liike-olioita,
+     * jotka lisätään tämän luokan listaan. 
+     */
     public void lue() {
 
         try {

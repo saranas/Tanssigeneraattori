@@ -1,5 +1,10 @@
-package com.teegee.tanssigeneraattori;
+package liikkeidenmallinnus;
 
+/**
+ * Luokka säilöö Liikkeen alkutilan ja lopputilan
+ * 
+ * @author Akkanen
+ */
 public class Tila {
     private String nimi;
 

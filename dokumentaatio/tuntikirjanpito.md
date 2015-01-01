@@ -15,4 +15,6 @@
 * 28.12. 4h refaktorointia ja testejä
 
 * 29.12. 3h refaktorointia, testejä ja javadocin ihmettelyä
+* 31.12. 3h ehdotettujen korjausten toteuttamista, javadoc
+* 1.1.   1h graafisen kälin opiskelua
 

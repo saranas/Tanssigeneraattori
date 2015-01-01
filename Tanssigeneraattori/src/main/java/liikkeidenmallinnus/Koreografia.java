@@ -1,7 +1,12 @@
-package com.teegee.tanssigeneraattori;
+package liikkeidenmallinnus;
 
 import java.util.ArrayList;
 
+/**
+ * Luokka säilöö käyttäjän koreografiaan valitsemat liikkeet listaan.
+ * 
+ * @author Akkanen
+ */
 public class Koreografia {
 
     private String nimi;
@@ -15,7 +20,13 @@ public class Koreografia {
     public ArrayList<Liike> getKoreografianLiikkeet() {
         return this.koreografianLiikkeet;
     }
-
+    
+    /**
+     * Metodi laskee ja palauttaa koreografian liikkeiden 
+     * yhteiskeston iskuina. 
+     * 
+     * @return liikkeiden yhteiskesto
+     */
     public int tanssinKesto() {
         int kestoYhteensa = 0;
         for (Liike liike : this.koreografianLiikkeet) {
@@ -24,6 +35,12 @@ public class Koreografia {
         return kestoYhteensa;
     }
     
+    /**
+     * Metodi muuntaa luokan ArrayListin sisältämien Liikkeiden
+     * nimet helppolukuiseksi muotoilluksi tekstiksi. 
+     * 
+     * @return koreografian liikkeet Stringinä
+     */
     public String annaKoreografiaTekstina() {
         String koreografiaTekstina = this.getNimi() + "\n\n";
         for (int i = 0; i < koreografianLiikkeet.size(); i++) {
@@ -39,7 +56,10 @@ public class Koreografia {
         return koreografiaTekstina;
         
     }
-
+    
+    /**
+     * Metodi tulostaa koreografian tekstimuodossa.
+     */
     public void tulostaKoreografia() {
         System.out.println();
         System.out.println(this.annaKoreografiaTekstina());

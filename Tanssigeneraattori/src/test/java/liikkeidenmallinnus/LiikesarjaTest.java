@@ -1,5 +1,9 @@
-package com.teegee.tanssigeneraattori;
+package liikkeidenmallinnus;
 
+import liikkeidenmallinnus.LiikeElementti;
+import liikkeidenmallinnus.Tila;
+import liikkeidenmallinnus.Liikesarja;
+import liikkeidenmallinnus.Tanssilaji;
 import static org.hamcrest.CoreMatchers.is;
 import org.junit.Before;
 import org.junit.Test;

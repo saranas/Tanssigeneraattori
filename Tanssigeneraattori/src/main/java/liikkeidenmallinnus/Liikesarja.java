@@ -1,4 +1,4 @@
-package com.teegee.tanssigeneraattori;
+package liikkeidenmallinnus;
 
 import java.util.ArrayList;
 
@@ -7,6 +7,10 @@ public class Liikesarja implements Liike {
     private Tanssilaji tanssilaji;
     private String nimi;
     private ArrayList<Liike> liikkeet;
+    /**
+     * Tyhjä arvo alku- ja lopputilaksi, 
+     * jos listaan ei ole vielä lisätty mitään
+     */
     public static Tila TYHJA_TILA = new Tila("tyhja");
 
     public Liikesarja(Tanssilaji tanssilaji, String nimi) {
@@ -24,8 +28,10 @@ public class Liikesarja implements Liike {
     }
     
     /**
+     * Metodi palauttaa Liikesarjan liikkeiden yhteiskeston, joka
+     * on nolla, jos lista on tyhjä.
      * 
-     * @return int Palauttaa Liikesarjan liikkeiden yhteiskeston
+     * @return int Yhteiskesto
      */
     public int getKesto() {
         int kestoYhteensa = 0;
@@ -44,7 +50,14 @@ public class Liikesarja implements Liike {
         return this.tanssilaji + this.nimi + this.getKesto()
                 + this.getAlkutila() + this.getLopputila();
     }
-
+    
+    /**
+     * Palauttaa Liikesarjan ensimmäisen liikkeen alkutilan, koska
+     * se on näin ollen koko Liikesarjan alkutila. Jos liikkeitä
+     * ei vielä ole lisätty, palauttaa tyhjän tilan.
+     * 
+     * @return listan ensimmäisen liikkeen alkutila
+     */
     @Override
     public Tila getAlkutila() {
         if (liikkeet.isEmpty()) {
@@ -53,7 +66,14 @@ public class Liikesarja implements Liike {
             return liikkeet.get(0).getAlkutila();
         }
     }
-
+    
+    /**
+     * Palauttaa listan viimeisen liikkeen lopputilan, koska se
+     * on näin ollen koko Liikesarjan lopputila. Jos liikkeitä
+     * ei ole vielä lisätty, palauttaa tyhjän tilan.
+     * 
+     * @return listan viimeisen liikkeen lopputila
+     */
     @Override
     public Tila getLopputila() {
         if (liikkeet.isEmpty()) {
@@ -89,7 +109,7 @@ public class Liikesarja implements Liike {
     /**
      * Metodi poistaa Liikesarjan liikkeet-listan viimeisen Liike-olion
      * 
-     * @return 
+     * @return poistettu liike tai ei mitään
      */
     public Liike poistaViimeisinLiike() {
         if (!liikkeet.isEmpty()) {

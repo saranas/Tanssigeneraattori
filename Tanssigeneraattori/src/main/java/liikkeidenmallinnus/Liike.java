@@ -1,4 +1,4 @@
-package com.teegee.tanssigeneraattori;
+package liikkeidenmallinnus;
 
 public interface Liike {
     
