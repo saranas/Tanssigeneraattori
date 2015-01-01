@@ -15,12 +15,12 @@ public class LajinvalintaKuuntelija implements ActionListener {
     private LiikevarastonKasittelija kasittelija;
     private Taulukontekija taulukoija;
 
-    public LajinvalintaKuuntelija(LiikevarastonKasittelija kasittelija, 
+    public LajinvalintaKuuntelija(GraafinenKayttoliittyma gk, LiikevarastonKasittelija kasittelija, 
             JComboBox tanssivalikko, JList liikelista) {
         this.tanssivalikko = tanssivalikko;
         this.liikelista = liikelista;
         this.taulukoija = new Taulukontekija();
-        this.gkali = new GraafinenKayttoliittyma(kasittelija);
+        this.gkali = gk;
         this.kasittelija = kasittelija;
     }
 

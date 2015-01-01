@@ -13,20 +13,15 @@ public class GraafinenKayttoliittyma implements Runnable {
 
     private JFrame frame;
     private LiikevarastonKasittelija kasittelija;
-    private Koreografia koreografia;
-    private Tanssilaji tanssilaji;
     private JList liikelista;
     private Taulukontekija taulukoija;
+    private Koreografia koreografia;
 
     public GraafinenKayttoliittyma(LiikevarastonKasittelija kasittelija) {
         this.kasittelija = kasittelija;
-        this.koreografia = new Koreografia("Nimi");
         this.taulukoija = new Taulukontekija();
-    }
-
-    public void setLiikelista(JList liikelista) {
-        this.liikelista = liikelista;
-    }   
+        this.koreografia = new Koreografia("Tanssin nimi");
+    }  
 
     @Override
     public void run() {
@@ -41,6 +36,11 @@ public class GraafinenKayttoliittyma implements Runnable {
         frame.setVisible(true);
     }
 
+    public void setLiikelista(JList liikelista) {
+        this.liikelista = liikelista;
+    }
+    
+
     private void luoKomponentit(Container container) {
         container.add(ylaBlokki(), BorderLayout.NORTH);
         container.add(keskiBlokki(), BorderLayout.CENTER);
@@ -48,66 +48,71 @@ public class GraafinenKayttoliittyma implements Runnable {
     }
 
     private JPanel ylaBlokki() {
-        JPanel paneeli = new JPanel(new GridLayout(1, 2));
+        JPanel paneeli1 = new JPanel(new GridLayout(1, 2));
 
         ArrayList<Tanssilaji> tanssilajilista = kasittelija.annaTanssilajit();
         String[] tanssilista = taulukoija.annaLajitTaulukkona(tanssilajilista);
 
         JComboBox tanssivalikko = new JComboBox(tanssilista);
         LajinvalintaKuuntelija lajivalitsija = 
-                new LajinvalintaKuuntelija(kasittelija, tanssivalikko, liikelista);
+                new LajinvalintaKuuntelija(this, kasittelija, tanssivalikko, liikelista);
         tanssivalikko.addActionListener(lajivalitsija);
         //tanssivalikko.setSelectedIndex(0);
         //tanssivalikko.addActionListener(this);
 
-        paneeli.add(tanssivalikko);
-        paneeli.add(new JTextField("Tanssin nimi"));
-        return paneeli;
+        paneeli1.add(tanssivalikko);
+        paneeli1.add(new JTextField("Tanssin nimi"));
+        return paneeli1;
     }
 
     private JPanel keskiBlokki() {
-        JPanel paneeli = new JPanel();
-        paneeli.setLayout(new BoxLayout(paneeli, BoxLayout.LINE_AXIS));
+        JPanel paneeli2 = new JPanel();
+        paneeli2.setLayout(new BoxLayout(paneeli2, BoxLayout.LINE_AXIS));
 
+        //Luo skrollivalikon liikkeistä
         ArrayList<Liike> liikkeet = kasittelija.annaLiikevalikoima();
         String[] liiketaulukko = taulukoija.annaLiikkeetTaulukkona(liikkeet);
-        liikelista = new JList(liiketaulukko);
-        
-
+        liikelista = new JList(liiketaulukko);        
         JScrollPane liikevalikko = new JScrollPane(liikelista);
         liikevalikko.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
         JPanel napit = new JPanel();
         napit.setLayout(new BoxLayout(napit, BoxLayout.PAGE_AXIS));
-        JButton lisaysnappi = new JButton(">");
+        
+        JButton lisaysnappi = new JButton(">");       
         JButton poistonappi = new JButton("X");
-        napit.add(lisaysnappi);
-        napit.add(poistonappi);
 
         JEditorPane koreografiaEsitys = new JEditorPane();
         koreografiaEsitys.setEditable(false);
+        koreografiaEsitys.setText("muuvei");
         JScrollPane koreografiaesitysSkrolli = new JScrollPane(koreografiaEsitys);
         koreografiaesitysSkrolli.setVerticalScrollBarPolicy(
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         koreografiaesitysSkrolli.setPreferredSize(new Dimension(250, 145));
         koreografiaesitysSkrolli.setMinimumSize(new Dimension(10, 10));
-
-        paneeli.add(liikevalikko);
-        paneeli.add(napit);
-        paneeli.add(koreografiaEsitys);
-        return paneeli;
+        
+        LiikkeenlisayksenKuuntelija lisaaja = 
+                new LiikkeenlisayksenKuuntelija(kasittelija, koreografia, liikelista, koreografiaEsitys);
+        lisaysnappi.addActionListener(lisaaja);
+        
+        napit.add(lisaysnappi);
+        napit.add(poistonappi);
+        paneeli2.add(liikevalikko);
+        paneeli2.add(napit);
+        paneeli2.add(koreografiaEsitys);
+        return paneeli2;
     }
 
     private JPanel alaBlokki() {
-        JPanel paneeli = new JPanel();
+        JPanel paneeli3 = new JPanel();
 
-        JLabel kesto = new JLabel("Tanssin kesto: ");
+        JLabel kesto = new JLabel("Tanssin kesto: " + String.valueOf(koreografia.tanssinKesto()));
         JButton tallennusnappi = new JButton("Tallenna");
 
-        paneeli.add(kesto);
-        paneeli.add(tallennusnappi);
+        paneeli3.add(kesto);
+        paneeli3.add(tallennusnappi);
 
-        return paneeli;
+        return paneeli3;
     }
 
     public JFrame getFrame() {
