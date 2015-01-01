@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
 import liikkeidenmallinnus.*;
@@ -13,11 +14,19 @@ public class GraafinenKayttoliittyma implements Runnable {
     private JFrame frame;
     private LiikevarastonKasittelija kasittelija;
     private Koreografia koreografia;
+    private Tanssilaji tanssilaji;
+    private JList liikelista;
+    private Taulukontekija taulukoija;
 
     public GraafinenKayttoliittyma(LiikevarastonKasittelija kasittelija) {
         this.kasittelija = kasittelija;
         this.koreografia = new Koreografia("Nimi");
+        this.taulukoija = new Taulukontekija();
     }
+
+    public void setLiikelista(JList liikelista) {
+        this.liikelista = liikelista;
+    }   
 
     @Override
     public void run() {
@@ -40,14 +49,14 @@ public class GraafinenKayttoliittyma implements Runnable {
 
     private JPanel ylaBlokki() {
         JPanel paneeli = new JPanel(new GridLayout(1, 2));
-        
+
         ArrayList<Tanssilaji> tanssilajilista = kasittelija.annaTanssilajit();
-        String[] tanssilista = new String[tanssilajilista.size()];
-        for (int i = 0; i < tanssilajilista.size(); i++) {
-            tanssilista[i] = tanssilajilista.get(i).getNimi();
-        }
+        String[] tanssilista = taulukoija.annaLajitTaulukkona(tanssilajilista);
 
         JComboBox tanssivalikko = new JComboBox(tanssilista);
+        LajinvalintaKuuntelija lajivalitsija = 
+                new LajinvalintaKuuntelija(kasittelija, tanssivalikko, liikelista);
+        tanssivalikko.addActionListener(lajivalitsija);
         //tanssivalikko.setSelectedIndex(0);
         //tanssivalikko.addActionListener(this);
 
@@ -55,32 +64,55 @@ public class GraafinenKayttoliittyma implements Runnable {
         paneeli.add(new JTextField("Tanssin nimi"));
         return paneeli;
     }
-    
-    private JPanel keskiBlokki() {
-        JPanel paneeli = new JPanel(new GridLayout(1, 3));
 
-        JList liikelista = new JList();
-        JToolBar napit = new JToolBar();
-        JEditorPane koreografiaEsitys = new JEditorPane();
+    private JPanel keskiBlokki() {
+        JPanel paneeli = new JPanel();
+        paneeli.setLayout(new BoxLayout(paneeli, BoxLayout.LINE_AXIS));
+
+        ArrayList<Liike> liikkeet = kasittelija.annaLiikevalikoima();
+        String[] liiketaulukko = taulukoija.annaLiikkeetTaulukkona(liikkeet);
+        liikelista = new JList(liiketaulukko);
         
-        paneeli.add(liikelista);
+
+        JScrollPane liikevalikko = new JScrollPane(liikelista);
+        liikevalikko.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+        JPanel napit = new JPanel();
+        napit.setLayout(new BoxLayout(napit, BoxLayout.PAGE_AXIS));
+        JButton lisaysnappi = new JButton(">");
+        JButton poistonappi = new JButton("X");
+        napit.add(lisaysnappi);
+        napit.add(poistonappi);
+
+        JEditorPane koreografiaEsitys = new JEditorPane();
+        koreografiaEsitys.setEditable(false);
+        JScrollPane koreografiaesitysSkrolli = new JScrollPane(koreografiaEsitys);
+        koreografiaesitysSkrolli.setVerticalScrollBarPolicy(
+                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        koreografiaesitysSkrolli.setPreferredSize(new Dimension(250, 145));
+        koreografiaesitysSkrolli.setMinimumSize(new Dimension(10, 10));
+
+        paneeli.add(liikevalikko);
         paneeli.add(napit);
         paneeli.add(koreografiaEsitys);
         return paneeli;
     }
-    
+
     private JPanel alaBlokki() {
         JPanel paneeli = new JPanel();
-        
-        JTextField kesto = new JTextField("Tanssin kesto: ");
+
+        JLabel kesto = new JLabel("Tanssin kesto: ");
         JButton tallennusnappi = new JButton("Tallenna");
-        
+
+        paneeli.add(kesto);
         paneeli.add(tallennusnappi);
-        
+
         return paneeli;
     }
 
     public JFrame getFrame() {
         return frame;
     }
+
+
 }

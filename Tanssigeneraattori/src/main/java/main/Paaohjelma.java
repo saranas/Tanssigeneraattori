@@ -17,20 +17,20 @@ public class Paaohjelma {
 
         Scanner lukija = new Scanner(System.in);
         LiikevarastonKasittelija kasittelija = new LiikevarastonKasittelija("liikevarasto.txt");
-        Tekstikayttoliittyma tekstikali = new Tekstikayttoliittyma(kasittelija, lukija);
+        //Tekstikayttoliittyma tekstikali = new Tekstikayttoliittyma(kasittelija, lukija);
         
         GraafinenKayttoliittyma graafkali = new GraafinenKayttoliittyma(kasittelija);
         SwingUtilities.invokeLater(graafkali);
 
         kasittelija.lue();
 
-        tekstikali.esitteleTanssilajit();
-        Tanssilaji tanssilaji = tekstikali.pyydaTanssilajia();
-        tekstikali.esitteleLiikkeet(tanssilaji);
-
-        tekstikali.pyydaKoreografianNimea();
-        tekstikali.lisaaLiikkeitaKoreografiaan();
-        tekstikali.kysyTallennetaanko();
+//        tekstikali.esitteleTanssilajit();
+//        Tanssilaji tanssilaji = tekstikali.pyydaTanssilajia();
+//        tekstikali.esitteleLiikkeet(tanssilaji);
+//
+//        tekstikali.pyydaKoreografianNimea();
+//        tekstikali.lisaaLiikkeitaKoreografiaan();
+//        tekstikali.kysyTallennetaanko();
 
     }
 

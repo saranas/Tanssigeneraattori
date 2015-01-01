@@ -9,10 +9,9 @@ import liikkeidenmallinnus.Tanssilaji;
 import liikkeidenmallinnus.Tila;
 
 /**
- * Luokka lukee tiedostoa, johon informaatio eri 
- * tanssiliikkeistä on tallennettu, ja antaa informaation
- * eteenpäin.
- * 
+ * Luokka lukee tiedostoa, johon informaatio eri tanssiliikkeistä on
+ * tallennettu, ja antaa informaation eteenpäin.
+ *
  * @author Akkanen
  */
 public class LiikevarastonKasittelija {
@@ -25,12 +24,12 @@ public class LiikevarastonKasittelija {
         this.tiedosto = new File(annettuTiedosto);
         this.liikevalikoima = new ArrayList<Liike>();
     }
-    
+
     /**
-     * Metodi palauttaa listan siitä, mitä eri tanssilajeja
-     * säiliötiedoston liikkeet edustavat.
-     * 
-     * @return 
+     * Metodi palauttaa listan siitä, mitä eri tanssilajeja säiliötiedoston
+     * liikkeet edustavat.
+     *
+     * @return
      */
     public ArrayList<Tanssilaji> annaTanssilajit() {
         ArrayList<Tanssilaji> tanssilajit;
@@ -42,22 +41,39 @@ public class LiikevarastonKasittelija {
         }
         return tanssilajit;
     }
-    
+
     /**
-     * Metodi palauttaa säiliötiedoston kohdat listana
-     * Liike-olioita.
-     * 
-     * @return 
+     * Metodi palauttaa säiliötiedoston kohdat listana Liike-olioita.
+     *
+     * @return
      */
     public ArrayList<Liike> annaLiikevalikoima() {
         return this.liikevalikoima;
     }
-    
+
     /**
-     * Metodi lukee liikevarasto-tiedostoa. Metodi muuntaa 
-     * tiedostossa olevien liikkeiden ominaisuudet sopivan-
-     * tyyppisiksi, ja luo niiden perusteella uusia Liike-olioita,
-     * jotka lisätään tämän luokan listaan. 
+     * Metodi palauttaa listan liikkeitä, joilla on sama laji, kuin
+     * mikä on annettu parametrina.
+     * 
+     * @param valittulaji
+     * @return lista liikkeitä valitun lajin mukaan
+     */
+    public ArrayList<Liike> annaLiikevalikoimaLajinMukaan(String valittulaji) {
+        ArrayList<Liike> lajinliikkeet;
+        lajinliikkeet = new ArrayList<Liike>();
+
+        for (Liike liike : this.annaLiikevalikoima()) {
+            if (liike.getTanssilaji().getNimi().equals(valittulaji)) {
+                lajinliikkeet.add(liike);
+            }
+        }
+        return lajinliikkeet;
+    }
+
+    /**
+     * Metodi lukee liikevarasto-tiedostoa. Metodi muuntaa tiedostossa olevien
+     * liikkeiden ominaisuudet sopivan- tyyppisiksi, ja luo niiden perusteella
+     * uusia Liike-olioita, jotka lisätään tämän luokan listaan.
      */
     public void lue() {
 
@@ -72,7 +88,7 @@ public class LiikevarastonKasittelija {
             String rivi = lukija.nextLine();
 
             String[] splitattuRivi = rivi.split("\\|");
-            
+
             Tanssilaji laji = new Tanssilaji(splitattuRivi[0].trim().toLowerCase());
             String liikkeenNimi = splitattuRivi[1].trim().toLowerCase();
             int kesto = Integer.parseInt(splitattuRivi[2].trim());
@@ -89,6 +105,5 @@ public class LiikevarastonKasittelija {
         lukija.close();
         System.out.println();
     }
-
 
 }
