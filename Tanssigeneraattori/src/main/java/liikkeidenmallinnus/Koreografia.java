@@ -45,14 +45,14 @@ public class Koreografia {
         String koreografiaTekstina = this.getNimi() + "\n\n";
         for (int i = 0; i < koreografianLiikkeet.size(); i++) {
             if (i % 2 != 0 || i == 1) {
-                koreografiaTekstina = koreografiaTekstina.concat(this.koreografianLiikkeet.get(i).getNimi());
-                koreografiaTekstina = koreografiaTekstina.concat("\n");
+                koreografiaTekstina = koreografiaTekstina + 
+                        this.koreografianLiikkeet.get(i).getNimi() + "\n";
             } else {
-                koreografiaTekstina = koreografiaTekstina.concat(this.koreografianLiikkeet.get(i).getNimi());
-                koreografiaTekstina = koreografiaTekstina.concat(" ");
+                koreografiaTekstina = koreografiaTekstina + 
+                        this.koreografianLiikkeet.get(i).getNimi() + " ";
             }
         }
-        koreografiaTekstina = koreografiaTekstina.concat("\nTanssin kesto " + this.tanssinKesto() + " iskua");
+        //koreografiaTekstina = koreografiaTekstina + "\nTanssin kesto " + this.tanssinKesto() + " iskua";
         return koreografiaTekstina;
         
     }
