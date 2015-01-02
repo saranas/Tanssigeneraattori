@@ -23,10 +23,10 @@ under the License.
     <link>${project.url}</link>
     <description>Tanssigeneraattori - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2014</copyright>
+    <copyright>&#169;2015</copyright>
     <item>
-      <title>File: 6,
-             Errors: 5,
+      <title>File: 18,
+             Errors: 1,
              Warnings: 0,
              Infos: 0
       </title>
@@ -46,21 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#com.teegee.tanssigeneraattori.Paaohjelma.java">com/teegee/tanssigeneraattori/Paaohjelma.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  2
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#com.teegee.tanssigeneraattori.Liike.java">com/teegee/tanssigeneraattori/Liike.java</a>
+                  <a href="${project.url}/checkstyle.html#graafinenkali.Taulukontekija.java">graafinenkali/Taulukontekija.java</a>
                 </td>
                 <td>
                   0
@@ -74,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#com.teegee.tanssigeneraattori.LiikevarastonKasittelija.java">com/teegee/tanssigeneraattori/LiikevarastonKasittelija.java</a>
+                  <a href="${project.url}/checkstyle.html#liikkeidenmallinnus.LiikevarastonKasittelija.java">liikkeidenmallinnus/LiikevarastonKasittelija.java</a>
                 </td>
                 <td>
                   0
@@ -88,7 +74,119 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#com.teegee.tanssigeneraattori.Liikesarja.java">com/teegee/tanssigeneraattori/Liikesarja.java</a>
+                  <a href="${project.url}/checkstyle.html#graafinenkali.LiikkeenlisayksenKuuntelija.java">graafinenkali/LiikkeenlisayksenKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#graafinenkali.TallennuksenKuuntelija.java">graafinenkali/TallennuksenKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#graafinenkali.LiikkeenpoistonKuuntelija.java">graafinenkali/LiikkeenpoistonKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#liikkeidenmallinnus.Tanssilaji.java">liikkeidenmallinnus/Tanssilaji.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#graafinenkali.TanssinNimiKuuntelija.java">graafinenkali/TanssinNimiKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#liikkeidenmallinnus.Koreografia.java">liikkeidenmallinnus/Koreografia.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#liikkeidenmallinnus.Liike.java">liikkeidenmallinnus/Liike.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#liikkeidenmallinnus.LiikeElementti.java">liikkeidenmallinnus/LiikeElementti.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#liikkeidenmallinnus.Liikesarja.java">liikkeidenmallinnus/Liikesarja.java</a>
                 </td>
                 <td>
                   0
@@ -102,7 +200,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#com.teegee.tanssigeneraattori.Koreografia.java">com/teegee/tanssigeneraattori/Koreografia.java</a>
+                  <a href="${project.url}/checkstyle.html#main.Paaohjelma.java">main/Paaohjelma.java</a>
                 </td>
                 <td>
                   0
@@ -116,7 +214,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#com.teegee.tanssigeneraattori.LiikeElementti.java">com/teegee/tanssigeneraattori/LiikeElementti.java</a>
+                  <a href="${project.url}/checkstyle.html#liikkeidenmallinnus.Tila.java">liikkeidenmallinnus/Tila.java</a>
                 </td>
                 <td>
                   0
@@ -125,7 +223,77 @@ under the License.
                   0
                 </td>
                 <td>
-                  2
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#graafinenkali.GraafinenKayttoliittyma.java">graafinenkali/GraafinenKayttoliittyma.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tekstikayttoliittyma.Tallentaja.java">tekstikayttoliittyma/Tallentaja.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#graafinenkali.LajinvalintaKuuntelija.java">graafinenkali/LajinvalintaKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tekstikayttoliittyma.Arpoja.java">tekstikayttoliittyma/Arpoja.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tekstikayttoliittyma.Tekstikayttoliittyma.java">tekstikayttoliittyma/Tekstikayttoliittyma.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
               </tr>
                       </tbody>

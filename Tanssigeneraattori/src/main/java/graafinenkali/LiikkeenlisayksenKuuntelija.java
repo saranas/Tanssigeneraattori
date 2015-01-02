@@ -10,14 +10,15 @@ import liikkeidenmallinnus.Liike;
 import liikkeidenmallinnus.LiikevarastonKasittelija;
 
 public class LiikkeenlisayksenKuuntelija implements ActionListener {
+
     private JList liikelista;
     private JEditorPane koreografiaEsitys;
     private Koreografia koreografia;
     private LiikevarastonKasittelija kasittelija;
     private JLabel kesto;
-    
-    LiikkeenlisayksenKuuntelija(LiikevarastonKasittelija kasittelija, 
-            Koreografia koreografia, JList liikelista, 
+
+    LiikkeenlisayksenKuuntelija(LiikevarastonKasittelija kasittelija,
+            Koreografia koreografia, JList liikelista,
             JEditorPane koreografiaEsitys, JLabel kesto) {
         this.liikelista = liikelista;
         this.kasittelija = kasittelija;
@@ -28,17 +29,15 @@ public class LiikkeenlisayksenKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String haluttuliike = (String)liikelista.getSelectedValue();
+        String haluttuliike = (String) liikelista.getSelectedValue();
         for (Liike liike : kasittelija.annaLiikevalikoima()) {
             if (liike.getNimi().equals(haluttuliike)) {
                 koreografia.getKoreografianLiikkeet().add(liike);
             }
-        }         
+        }
         koreografiaEsitys.setText(koreografia.annaKoreografiaTekstina());
-        
+
         kesto.setText("Tanssin kesto: " + String.valueOf(koreografia.tanssinKesto()));
     }
-    
-    
 
 }
