@@ -44,15 +44,17 @@ public class GraafinenKayttoliittyma implements Runnable {
     private void luoKomponentit(Container container) {
 
         JPanel paneeli1 = new JPanel(new GridLayout(1, 2));
-
+        
+        //Drop down -valikko tanssilajeista
         ArrayList<Tanssilaji> tanssilajilista = kasittelija.annaTanssilajit();
         String[] tanssilista = taulukoija.annaLajitTaulukkona(tanssilajilista);
-
         JComboBox tanssivalikko = new JComboBox(tanssilista);
         
+        //Palkki tanssin nimen syöttämiseen
+        JTextField nimenvalintapalkki = new JTextField("Tanssin nimi");       
 
         paneeli1.add(tanssivalikko);
-        paneeli1.add(new JTextField("Tanssin nimi"));
+        paneeli1.add(nimenvalintapalkki);
         
         
         JPanel paneeli2 = new JPanel();
@@ -65,20 +67,21 @@ public class GraafinenKayttoliittyma implements Runnable {
         JScrollPane liikevalikko = new JScrollPane(liikelista);      
         liikevalikko.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
+        //Luo napit liikkeiden lisäykseen ja poistoon
         JPanel napit = new JPanel();
-        napit.setLayout(new BoxLayout(napit, BoxLayout.PAGE_AXIS));
-        
+        napit.setLayout(new BoxLayout(napit, BoxLayout.PAGE_AXIS));       
         JButton lisaysnappi = new JButton(">");       
         JButton poistonappi = new JButton("X");
-
+        
+        //Luo tekstilaatikon, jossa koreografia näytetään
         JEditorPane koreografiaEsitys = new JEditorPane();
         koreografiaEsitys.setEditable(false);
         koreografiaEsitys.setText("muuvei");
         JScrollPane koreografiaesitysSkrolli = new JScrollPane(koreografiaEsitys);
         koreografiaesitysSkrolli.setVerticalScrollBarPolicy(
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        //koreografiaesitysSkrolli.setPreferredSize(new Dimension(250, 145));
-        //koreografiaesitysSkrolli.setMinimumSize(new Dimension(10, 10));
+        koreografiaesitysSkrolli.setPreferredSize(new Dimension(250, 145));
+        koreografiaesitysSkrolli.setMinimumSize(new Dimension(10, 10));
         
         
         napit.add(lisaysnappi);
@@ -109,7 +112,14 @@ public class GraafinenKayttoliittyma implements Runnable {
         LajinvalintaKuuntelija lajivalitsija = 
                 new LajinvalintaKuuntelija(kasittelija, tanssivalikko, liikelista);
         tanssivalikko.addActionListener(lajivalitsija);
-
+        
+        TanssinNimiKuuntelija nimeaja = 
+                new TanssinNimiKuuntelija(koreografia, koreografiaEsitys, nimenvalintapalkki);
+        nimenvalintapalkki.addActionListener(nimeaja);
+        
+        TallennuksenKuuntelija tallennuskuuntelija = 
+                new TallennuksenKuuntelija(koreografia);
+        tallennusnappi.addActionListener(tallennuskuuntelija);
         
         
         container.add(paneeli1, BorderLayout.NORTH);

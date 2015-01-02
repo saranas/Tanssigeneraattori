@@ -16,5 +16,6 @@
 
 * 29.12. 3h refaktorointia, testejä ja javadocin ihmettelyä
 * 31.12. 3h ehdotettujen korjausten toteuttamista, javadoc
-* 1.1.   4h graafisen kälin opiskelua
+* 1.1.   6h graafisen kälin opiskelua ja toteuttamista
+* 2.1.   1h graafinen käli toimii jotenkuten
 
