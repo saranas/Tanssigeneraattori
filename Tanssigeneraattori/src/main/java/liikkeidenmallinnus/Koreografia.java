@@ -1,6 +1,7 @@
 package liikkeidenmallinnus;
 
 import java.util.ArrayList;
+import static liikkeidenmallinnus.Liikesarja.TYHJA_TILA;
 
 /**
  * Luokka säilöö käyttäjän koreografiaan valitsemat liikkeet listaan.
@@ -19,6 +20,45 @@ public class Koreografia {
 
     public ArrayList<Liike> getKoreografianLiikkeet() {
         return this.koreografianLiikkeet;
+    }
+    
+    /**
+     * Metodi lisää Liike-olion Koreografian liikelistaan, mutta vain
+     * jos listan viimeisen liikkeen lopputila ja lisättävän liikkeen alkutila
+     * ovat yhteensopivat.
+     *
+     * @param liike
+     * @return boolean Palauttaa true tai false sen mukaan onnistuiko lisäys
+     */
+    public boolean lisaaLiike(Liike liike) {
+
+        if (koreografianLiikkeet.isEmpty()) {
+            koreografianLiikkeet.add(liike);
+            return true;
+        }
+
+        Tila alkutila = liike.getAlkutila();
+        if (alkutila.equals(this.getLopputila())) {
+            koreografianLiikkeet.add(liike);
+            return true;
+        }
+        return false;
+    }
+    
+    
+    /**
+     * Palauttaa listan viimeisen liikkeen lopputilan, koska se on näin ollen
+     * koko Liikesarjan lopputila. Jos liikkeitä ei ole vielä lisätty, palauttaa
+     * tyhjän tilan.
+     *
+     * @return listan viimeisen liikkeen lopputila
+     */
+    public Tila getLopputila() {
+        if (koreografianLiikkeet.isEmpty()) {
+            return TYHJA_TILA;
+        } else {
+            return koreografianLiikkeet.get(koreografianLiikkeet.size() - 1).getLopputila();
+        }
     }
     
     /**

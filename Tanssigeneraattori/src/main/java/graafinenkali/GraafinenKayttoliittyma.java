@@ -76,7 +76,7 @@ public class GraafinenKayttoliittyma implements Runnable {
         //Luo tekstilaatikon, jossa koreografia näytetään
         JEditorPane koreografiaEsitys = new JEditorPane();
         koreografiaEsitys.setEditable(false);
-        koreografiaEsitys.setText("muuvei");
+        koreografiaEsitys.setText("");
         JScrollPane koreografiaesitysSkrolli = new JScrollPane(koreografiaEsitys);
         koreografiaesitysSkrolli.setVerticalScrollBarPolicy(
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -93,9 +93,11 @@ public class GraafinenKayttoliittyma implements Runnable {
         
         JPanel paneeli3 = new JPanel();
 
+        //JButton latausnappi = new JButton("Lataa");
         JLabel kesto = new JLabel("Tanssin kesto: " + String.valueOf(koreografia.tanssinKesto()));
         JButton tallennusnappi = new JButton("Tallenna");
 
+        //paneeli3.add(latausnappi);
         paneeli3.add(kesto);
         paneeli3.add(tallennusnappi);
         
@@ -118,7 +120,7 @@ public class GraafinenKayttoliittyma implements Runnable {
         nimenvalintapalkki.addActionListener(nimeaja);
         
         TallennuksenKuuntelija tallennuskuuntelija = 
-                new TallennuksenKuuntelija(koreografia);
+                new TallennuksenKuuntelija(koreografia, frame);
         tallennusnappi.addActionListener(tallennuskuuntelija);
         
         

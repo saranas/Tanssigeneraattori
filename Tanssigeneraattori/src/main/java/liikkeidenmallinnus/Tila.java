@@ -21,6 +21,25 @@ public class Tila {
         return nimi;
     }
     
+    @Override
+    public boolean equals(Object olio) {
+        if (olio == null) {
+            return false;
+        }
+
+        if (getClass() != olio.getClass()) {
+            return false;
+        }
+
+        Tila verrattava = (Tila) olio;
+
+        if (this.nimi == null || !this.nimi.equals(verrattava.getNimi())) {
+            return false;
+        }
+
+        return true;
+    }
+    
     
     
     

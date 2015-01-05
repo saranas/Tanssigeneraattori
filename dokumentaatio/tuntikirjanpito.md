@@ -18,4 +18,7 @@
 * 31.12. 3h ehdotettujen korjausten toteuttamista, javadoc
 * 1.1.   6h graafisen kälin opiskelua ja toteuttamista
 * 2.1.   1h graafinen käli toimii jotenkuten
+* 4.1.   1h lataus ja tallennus
+
+* 5.1.   1h kirjoitettu lisää testejä
 

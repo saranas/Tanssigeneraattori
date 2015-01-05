@@ -32,7 +32,7 @@ public class LiikkeenlisayksenKuuntelija implements ActionListener {
         String haluttuliike = (String) liikelista.getSelectedValue();
         for (Liike liike : kasittelija.annaLiikevalikoima()) {
             if (liike.getNimi().equals(haluttuliike)) {
-                koreografia.getKoreografianLiikkeet().add(liike);
+                koreografia.lisaaLiike(liike);
             }
         }
         koreografiaEsitys.setText(koreografia.annaKoreografiaTekstina());
