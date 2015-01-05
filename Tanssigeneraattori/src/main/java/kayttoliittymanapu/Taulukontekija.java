@@ -1,4 +1,4 @@
-package graafinenkali;
+package kayttoliittymanapu;
 
 import java.util.ArrayList;
 import liikkeidenmallinnus.Liike;

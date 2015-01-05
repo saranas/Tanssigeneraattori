@@ -1,4 +1,4 @@
-package tekstikayttoliittyma;
+package kayttoliittymanapu;
 
 import java.io.FileWriter;
 

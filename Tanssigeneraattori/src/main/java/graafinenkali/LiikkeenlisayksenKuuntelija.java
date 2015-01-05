@@ -1,5 +1,6 @@
 package graafinenkali;
 
+import kayttoliittymanapu.Taulukontekija;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -7,8 +8,10 @@ import javax.swing.JComboBox;
 import javax.swing.JEditorPane;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import kayttoliittymanapu.LiikelistaSuodatin;
 import liikkeidenmallinnus.Koreografia;
 import liikkeidenmallinnus.Liike;
+import static liikkeidenmallinnus.Liikesarja.TYHJA_TILA;
 import liikkeidenmallinnus.LiikevarastonKasittelija;
 import liikkeidenmallinnus.Tanssilaji;
 
@@ -21,10 +24,12 @@ public class LiikkeenlisayksenKuuntelija implements ActionListener {
     private JLabel kesto;
     private Taulukontekija taulukoija;
     private JComboBox lajivalikko;
+    private LiikelistaSuodatin suodatin;
 
-    LiikkeenlisayksenKuuntelija(LiikevarastonKasittelija kasittelija,
+    LiikkeenlisayksenKuuntelija(LiikelistaSuodatin suodatin, LiikevarastonKasittelija kasittelija,
             Koreografia koreografia, JList liikelista,
             JEditorPane koreografiaEsitys, JLabel kesto, JComboBox lajivalikko) {
+        this.suodatin = suodatin;
         this.liikelista = liikelista;
         this.kasittelija = kasittelija;
         this.koreografiaEsitys = koreografiaEsitys;
@@ -40,21 +45,13 @@ public class LiikkeenlisayksenKuuntelija implements ActionListener {
         for (Liike liike : kasittelija.annaLiikevalikoima()) {
             if (liike.getNimi().equals(haluttuliike)) {
                 koreografia.lisaaLiike(liike);
-               
-                
+
             }
         }
         koreografiaEsitys.setText(koreografia.annaKoreografiaTekstina());
+
         
-        ArrayList<Liike> suodatettavaLista = kasittelija.annaLiikevalikoima();
-        
-        String valittulaji;
-        valittulaji = (String) lajivalikko.getSelectedItem();
-        Tanssilaji laji = new Tanssilaji(valittulaji);
-        
-        suodatettavaLista = kasittelija.suodataTilanMukaan(koreografia.getLopputila(), suodatettavaLista);
-        suodatettavaLista = kasittelija.suodataLajinMukaan(laji, suodatettavaLista);
-        liikelista.setListData(taulukoija.annaLiikkeetTaulukkona(suodatettavaLista));
+        liikelista.setListData(suodatin.suodata());
 
         kesto.setText("Tanssin kesto: " + String.valueOf(koreografia.tanssinKesto()));
     }

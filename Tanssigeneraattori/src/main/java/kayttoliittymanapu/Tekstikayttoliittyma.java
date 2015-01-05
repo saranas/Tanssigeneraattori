@@ -1,4 +1,4 @@
-package tekstikayttoliittyma;
+package kayttoliittymanapu;
 
 import liikkeidenmallinnus.LiikevarastonKasittelija;
 import java.util.ArrayList;

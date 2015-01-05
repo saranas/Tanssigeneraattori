@@ -1,11 +1,13 @@
 package graafinenkali;
 
+import kayttoliittymanapu.Taulukontekija;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
+import kayttoliittymanapu.LiikelistaSuodatin;
 import liikkeidenmallinnus.Koreografia;
 import liikkeidenmallinnus.Liike;
 import static liikkeidenmallinnus.Liikesarja.TYHJA_TILA;
@@ -19,9 +21,11 @@ public class LajinvalintaKuuntelija implements ActionListener {
     private LiikevarastonKasittelija kasittelija;
     private Taulukontekija taulukoija;
     private Koreografia koreografia;
+    private LiikelistaSuodatin suodatin;
 
-    public LajinvalintaKuuntelija(LiikevarastonKasittelija kasittelija,
+    public LajinvalintaKuuntelija(LiikelistaSuodatin suodatin, LiikevarastonKasittelija kasittelija,
             JComboBox tanssivalikko, JList liikelista, Koreografia koreografia) {
+        this.suodatin = suodatin;
         this.tanssivalikko = tanssivalikko;
         this.liikelista = liikelista;
         this.taulukoija = new Taulukontekija();
@@ -32,17 +36,7 @@ public class LajinvalintaKuuntelija implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
 
-        String valittulaji;
-        valittulaji = (String) tanssivalikko.getSelectedItem();
-        Tanssilaji laji = new Tanssilaji(valittulaji);
-
-        ArrayList<Liike> suodatettavaLista = kasittelija.annaLiikevalikoima();
-        suodatettavaLista = kasittelija.suodataLajinMukaan(laji, suodatettavaLista);
-
-        if (koreografia.getLopputila() != TYHJA_TILA) {
-            suodatettavaLista = kasittelija.suodataTilanMukaan(koreografia.getLopputila(), suodatettavaLista);
-        }
-        liikelista.setListData(taulukoija.annaLiikkeetTaulukkona(suodatettavaLista));
+        liikelista.setListData(suodatin.suodata());
 
     }
 }

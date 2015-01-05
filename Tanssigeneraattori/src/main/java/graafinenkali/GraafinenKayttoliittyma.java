@@ -1,5 +1,6 @@
 package graafinenkali;
 
+import kayttoliittymanapu.Taulukontekija;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -7,6 +8,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
+import kayttoliittymanapu.LiikelistaSuodatin;
 import liikkeidenmallinnus.*;
 
 public class GraafinenKayttoliittyma implements Runnable {
@@ -16,6 +18,7 @@ public class GraafinenKayttoliittyma implements Runnable {
     private JList liikelista;
     private Taulukontekija taulukoija;
     private Koreografia koreografia;
+    private LiikelistaSuodatin suodatin;
 
     public GraafinenKayttoliittyma(LiikevarastonKasittelija kasittelija) {
         this.kasittelija = kasittelija;
@@ -26,7 +29,7 @@ public class GraafinenKayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Tanssigeneraattori");
-        frame.setPreferredSize(new Dimension(400, 400));
+        frame.setPreferredSize(new Dimension(600, 600));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,18 +104,22 @@ public class GraafinenKayttoliittyma implements Runnable {
         paneeli3.add(kesto);
         paneeli3.add(tallennusnappi);
         
+        suodatin = new LiikelistaSuodatin(tanssivalikko, koreografia,
+                taulukoija, kasittelija, liikelista);
+        
         LiikkeenlisayksenKuuntelija lisaaja = 
-                new LiikkeenlisayksenKuuntelija(kasittelija, 
+                new LiikkeenlisayksenKuuntelija(suodatin, kasittelija, 
                         koreografia, liikelista, 
                         koreografiaEsitys, kesto, tanssivalikko);
         lisaysnappi.addActionListener(lisaaja);
         
         LiikkeenpoistonKuuntelija poistaja = 
-                new LiikkeenpoistonKuuntelija(koreografia, koreografiaEsitys, kesto);
+                new LiikkeenpoistonKuuntelija(suodatin, koreografia, koreografiaEsitys,
+                        kesto, tanssivalikko, liikelista);
         poistonappi.addActionListener(poistaja);
         
         LajinvalintaKuuntelija lajivalitsija = 
-                new LajinvalintaKuuntelija(kasittelija, tanssivalikko, liikelista, koreografia);
+                new LajinvalintaKuuntelija(suodatin, kasittelija, tanssivalikko, liikelista, koreografia);
         tanssivalikko.addActionListener(lajivalitsija);
         
         TanssinNimiKuuntelija nimeaja = 

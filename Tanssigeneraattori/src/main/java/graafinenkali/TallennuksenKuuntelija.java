@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import liikkeidenmallinnus.Koreografia;
-import tekstikayttoliittyma.Tallentaja;
+import kayttoliittymanapu.Tallentaja;
 
 
 public class TallennuksenKuuntelija implements ActionListener {

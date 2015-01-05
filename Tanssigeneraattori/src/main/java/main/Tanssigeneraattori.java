@@ -1,7 +1,7 @@
 package main;
 
 import graafinenkali.GraafinenKayttoliittyma;
-import tekstikayttoliittyma.Tekstikayttoliittyma;
+import kayttoliittymanapu.Tekstikayttoliittyma;
 import java.util.Scanner;
 import javax.swing.SwingUtilities;
 import liikkeidenmallinnus.LiikevarastonKasittelija;
