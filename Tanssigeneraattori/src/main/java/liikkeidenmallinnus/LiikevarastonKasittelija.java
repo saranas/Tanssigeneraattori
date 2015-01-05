@@ -58,16 +58,36 @@ public class LiikevarastonKasittelija {
      * @param valittulaji
      * @return lista liikkeitä valitun lajin mukaan
      */
-    public ArrayList<Liike> annaLiikevalikoimaLajinMukaan(String valittulaji) {
+    public ArrayList<Liike> annaLiikevalikoimaLajinMukaan(Tanssilaji valittulaji) {
         ArrayList<Liike> lajinliikkeet;
         lajinliikkeet = new ArrayList<Liike>();
 
         for (Liike liike : this.annaLiikevalikoima()) {
-            if (liike.getTanssilaji().getNimi().equals(valittulaji)) {
+            if (liike.getTanssilaji().equals(valittulaji)) {
                 lajinliikkeet.add(liike);
             }
         }
         return lajinliikkeet;
+    }
+    
+    /**
+     * Metodi palauttaa listan liikkeitä, joiden alkutila on 
+     * sama kuin parametrina annetti tila.
+     * 
+     * @param tila
+     * @return lista liikkeitä alkutilan mukaan
+     */
+    public ArrayList<Liike> annaLiikevalikoimaTilanMukaan(Tila tila) {
+        ArrayList<Liike> liikkeetTilanMukaan;
+        liikkeetTilanMukaan = new ArrayList<Liike>();
+        
+        for (Liike liike : this.annaLiikevalikoima()) {
+            if (liike.getAlkutila().equals(tila)) {
+                liikkeetTilanMukaan.add(liike);
+            }
+        }
+        
+        return liikkeetTilanMukaan;
     }
 
     /**
@@ -103,7 +123,6 @@ public class LiikevarastonKasittelija {
         }
 
         lukija.close();
-        System.out.println();
     }
 
 }

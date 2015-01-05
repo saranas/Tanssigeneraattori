@@ -40,5 +40,40 @@ public class LiikeElementti implements Liike {
     public Tila getLopputila() {
         return lopputila;
     }
+    
+    @Override
+    public boolean equals(Object olio) {
+        if (olio == null) {
+            return false;
+        }
+
+        if (getClass() != olio.getClass()) {
+            return false;
+        }
+
+        LiikeElementti verrattava = (LiikeElementti) olio;
+
+        if (this.nimi == null || !this.nimi.equals(verrattava.getNimi())) {
+            return false;
+        }
+        
+        if (this.getTanssilaji() != verrattava.getTanssilaji()) {
+            return false;
+        }
+        
+        if (this.getKesto() != verrattava.getKesto()) {
+            return false;
+        }
+        
+        if (this.getAlkutila() != verrattava.getAlkutila()) {
+            return false;
+        }
+        
+        if (this.getLopputila() != verrattava.getLopputila()) {
+            return false;
+        }
+
+        return true;
+    }
 
 }

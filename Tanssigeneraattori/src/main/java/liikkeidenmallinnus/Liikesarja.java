@@ -3,11 +3,11 @@ package liikkeidenmallinnus;
 import java.util.ArrayList;
 
 /**
- * Luokka on olemassa mahdollista tulevaisuuden ominaisuutta varten.
+ * Luokka on tehty mahdollista tulevaisuuden toiminnallisuutta varten.
  * Luokka antaa käyttäjälle mahdollisuuden yhdistellä pieniä Liike-Elementtejä
  * nimetyiksi Liikesarjoiksi. 
  * 
- * Liikesarja-luokkaa käytetään myös koko Koreografian säilömiseen
+ * Liikesarja-luokkaa käytetään kuitenkin myös koko Koreografian säilömiseen
  * hyvin samankaltaisten ominaisuuksiensa johdosta.
  * 
  * @author Akkanen
@@ -27,6 +27,11 @@ public class Liikesarja implements Liike {
         this.nimi = nimi;
         this.liikkeet = new ArrayList<Liike>();
     }
+    
+    public Liikesarja(String nimi) {
+        this.nimi = nimi;
+        this.liikkeet = new ArrayList<Liike>();
+    }
 
     public Tanssilaji getTanssilaji() {
         return tanssilaji;
@@ -35,6 +40,12 @@ public class Liikesarja implements Liike {
     public String getNimi() {
         return nimi;
     }
+
+    public ArrayList<Liike> getLiikkeet() {
+        return liikkeet;
+    }
+    
+    
 
     /**
      * Metodi palauttaa Liikesarjan liikkeiden yhteiskeston, joka on nolla, jos

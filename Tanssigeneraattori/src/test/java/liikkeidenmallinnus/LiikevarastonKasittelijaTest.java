@@ -28,8 +28,10 @@ import static org.junit.Assert.*;
 public class LiikevarastonKasittelijaTest {
     
     LiikevarastonKasittelija kasittelija;
-    LiikeElementti liikeEle;
+    LiikeElementti ele;
+    LiikeElementti ele2;
     Tanssilaji laji;
+    Tanssilaji erilaji;
     Tila alkutila;
     Tila lopputila;
     
@@ -37,28 +39,38 @@ public class LiikevarastonKasittelijaTest {
     public void setUp() {
         kasittelija = new LiikevarastonKasittelija("liikevarasto.txt");
         laji = new Tanssilaji("laji");
+        erilaji = new Tanssilaji("erilaji");
         alkutila = new Tila("alkutila");
         lopputila = new Tila("lopputila");
-        liikeEle = new LiikeElementti(laji, "ele", 1, alkutila, lopputila);
+        ele = new LiikeElementti(laji, "ele", 1, alkutila, lopputila);
+        ele2 = new LiikeElementti(erilaji, "ele2", 2, lopputila, alkutila);
     }
     
     @Test
     public void alkuasetuksetOikein() {
         assertTrue(kasittelija.annaLiikevalikoima().isEmpty()); 
-        assertTrue(kasittelija.annaTanssilajit().isEmpty()); 
+        assertTrue(kasittelija.annaTanssilajit().isEmpty());
+        assertTrue(kasittelija.annaLiikevalikoimaLajinMukaan(laji).isEmpty());
+        assertTrue(kasittelija.annaLiikevalikoimaTilanMukaan(lopputila).isEmpty());
     }
     
     @Test
     public void lueMetodiLisaaLiikkeitaLiikevalikoimaan() {
         kasittelija.lue();
-        assertFalse(kasittelija.annaLiikevalikoima().isEmpty());
+        assertFalse(kasittelija.annaLiikevalikoima().isEmpty()); 
+        assertFalse(kasittelija.annaTanssilajit().isEmpty());
     }
     
     @Test
-    public void annaTanssilajitAntaaListan() {
-        kasittelija.lue();
-        assertFalse(kasittelija.annaTanssilajit().isEmpty());
+    public void suodattimetToimivat() {
+        kasittelija.annaLiikevalikoima().add(ele);
+        kasittelija.annaLiikevalikoima().add(ele2);
+        assertEquals(kasittelija.annaLiikevalikoimaLajinMukaan(erilaji).size(), 1);
+        assertEquals(kasittelija.annaLiikevalikoimaLajinMukaan(erilaji).get(0), ele2);
+        assertEquals(kasittelija.annaLiikevalikoimaTilanMukaan(alkutila).size(), 1);
+        assertEquals(kasittelija.annaLiikevalikoimaTilanMukaan(alkutila).get(0), ele);
     }
+    
 
  
 }

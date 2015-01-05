@@ -4,22 +4,22 @@ import java.util.ArrayList;
 import static liikkeidenmallinnus.Liikesarja.TYHJA_TILA;
 
 /**
- * Luokka säilöö käyttäjän koreografiaan valitsemat liikkeet listaan.
+ * Luokka säilöö käyttäjän koreografiaan valitsemat liikkeet Liikesarja-olioon.
  * 
  * @author Akkanen
  */
 public class Koreografia {
 
     private String nimi;
-    private ArrayList<Liike> koreografianLiikkeet;
+    private Liikesarja tanssikoreografia;
 
     public Koreografia(String nimi) {
         this.nimi = nimi;
-        this.koreografianLiikkeet = new ArrayList<Liike>();
+        this.tanssikoreografia = new Liikesarja(nimi);
     }
 
     public ArrayList<Liike> getKoreografianLiikkeet() {
-        return this.koreografianLiikkeet;
+        return this.tanssikoreografia.getLiikkeet();
     }
     
     /**
@@ -28,37 +28,31 @@ public class Koreografia {
      * ovat yhteensopivat.
      *
      * @param liike
-     * @return boolean Palauttaa true tai false sen mukaan onnistuiko lisäys
+     * @return Palauttaa true tai false sen mukaan onnistuiko lisäys
      */
     public boolean lisaaLiike(Liike liike) {
-
-        if (koreografianLiikkeet.isEmpty()) {
-            koreografianLiikkeet.add(liike);
-            return true;
-        }
-
-        Tila alkutila = liike.getAlkutila();
-        if (alkutila.equals(this.getLopputila())) {
-            koreografianLiikkeet.add(liike);
-            return true;
-        }
-        return false;
+        return this.tanssikoreografia.lisaaLiike(liike);
     }
     
+    /**
+     * Metodi poistaa viimeisimpänä lisätyn liikkeen.
+     * Jos liikkeitä ei ole lisätty, palauttaa null.
+     *
+     * @return poistettu liike tai ei mitään
+     */
+    public Liike poistaViimeisinLiike() {
+        return this.tanssikoreografia.poistaViimeisinLiike();
+    }
     
     /**
-     * Palauttaa listan viimeisen liikkeen lopputilan, koska se on näin ollen
-     * koko Liikesarjan lopputila. Jos liikkeitä ei ole vielä lisätty, palauttaa
+     * Palauttaa Liikesarjan listan viimeisen liikkeen lopputilan, koska se on näin ollen
+     * koko Koreografian lopputila. Jos liikkeitä ei ole vielä lisätty, palauttaa
      * tyhjän tilan.
      *
-     * @return listan viimeisen liikkeen lopputila
+     * @return Liikesarjan viimeisen liikkeen lopputila
      */
     public Tila getLopputila() {
-        if (koreografianLiikkeet.isEmpty()) {
-            return TYHJA_TILA;
-        } else {
-            return koreografianLiikkeet.get(koreografianLiikkeet.size() - 1).getLopputila();
-        }
+        return this.tanssikoreografia.getLopputila();
     }
     
     /**
@@ -68,33 +62,28 @@ public class Koreografia {
      * @return liikkeiden yhteiskesto
      */
     public int tanssinKesto() {
-        int kestoYhteensa = 0;
-        for (Liike liike : this.koreografianLiikkeet) {
-            kestoYhteensa += liike.getKesto();
-        }
-        return kestoYhteensa;
+        return this.tanssikoreografia.getKesto();
     }
     
     /**
-     * Metodi muuntaa luokan ArrayListin sisältämien Liikkeiden
+     * Metodi muuntaa Liikesarjan ArrayListin sisältämien Liikkeiden
      * nimet helppolukuiseksi muotoilluksi tekstiksi. 
      * 
      * @return koreografian liikkeet Stringinä
      */
     public String annaKoreografiaTekstina() {
         String koreografiaTekstina = this.getNimi() + "\n\n";
-        for (int i = 0; i < koreografianLiikkeet.size(); i++) {
+        for (int i = 0; i < getKoreografianLiikkeet().size(); i++) {
             if (i % 2 != 0 || i == 1) {
                 koreografiaTekstina = koreografiaTekstina + 
-                        this.koreografianLiikkeet.get(i).getNimi() + "\n";
+                        this.getKoreografianLiikkeet().get(i).getNimi() + "\n";
             } else {
                 koreografiaTekstina = koreografiaTekstina + 
-                        this.koreografianLiikkeet.get(i).getNimi() + " ";
+                        this.getKoreografianLiikkeet().get(i).getNimi() + " ";
             }
         }
         //koreografiaTekstina = koreografiaTekstina + "\nTanssin kesto " + this.tanssinKesto() + " iskua";
-        return koreografiaTekstina;
-        
+        return koreografiaTekstina;       
     }
     
     /**

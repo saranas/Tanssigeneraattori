@@ -6,6 +6,7 @@ import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import liikkeidenmallinnus.LiikevarastonKasittelija;
+import liikkeidenmallinnus.Tanssilaji;
 
 public class LajinvalintaKuuntelija implements ActionListener {
 
@@ -27,9 +28,10 @@ public class LajinvalintaKuuntelija implements ActionListener {
 
         String valittulaji;
         valittulaji = (String) tanssivalikko.getSelectedItem();
+        Tanssilaji laji = new Tanssilaji(valittulaji);
 
         liikelista.setListData(taulukoija.annaLiikkeetTaulukkona(
-                kasittelija.annaLiikevalikoimaLajinMukaan(valittulaji)));
+                kasittelija.annaLiikevalikoimaLajinMukaan(laji)));
 
     }
 }
