@@ -104,7 +104,7 @@ public class GraafinenKayttoliittyma implements Runnable {
         LiikkeenlisayksenKuuntelija lisaaja = 
                 new LiikkeenlisayksenKuuntelija(kasittelija, 
                         koreografia, liikelista, 
-                        koreografiaEsitys, kesto);
+                        koreografiaEsitys, kesto, tanssivalikko);
         lisaysnappi.addActionListener(lisaaja);
         
         LiikkeenpoistonKuuntelija poistaja = 
@@ -112,7 +112,7 @@ public class GraafinenKayttoliittyma implements Runnable {
         poistonappi.addActionListener(poistaja);
         
         LajinvalintaKuuntelija lajivalitsija = 
-                new LajinvalintaKuuntelija(kasittelija, tanssivalikko, liikelista);
+                new LajinvalintaKuuntelija(kasittelija, tanssivalikko, liikelista, koreografia);
         tanssivalikko.addActionListener(lajivalitsija);
         
         TanssinNimiKuuntelija nimeaja = 

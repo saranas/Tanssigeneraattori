@@ -50,8 +50,8 @@ public class LiikevarastonKasittelijaTest {
     public void alkuasetuksetOikein() {
         assertTrue(kasittelija.annaLiikevalikoima().isEmpty()); 
         assertTrue(kasittelija.annaTanssilajit().isEmpty());
-        assertTrue(kasittelija.annaLiikevalikoimaLajinMukaan(laji).isEmpty());
-        assertTrue(kasittelija.annaLiikevalikoimaTilanMukaan(lopputila).isEmpty());
+        assertTrue(kasittelija.suodataLajinMukaan(laji, null).isEmpty());
+        assertTrue(kasittelija.suodataTilanMukaan(lopputila).isEmpty());
     }
     
     @Test
@@ -65,10 +65,10 @@ public class LiikevarastonKasittelijaTest {
     public void suodattimetToimivat() {
         kasittelija.annaLiikevalikoima().add(ele);
         kasittelija.annaLiikevalikoima().add(ele2);
-        assertEquals(kasittelija.annaLiikevalikoimaLajinMukaan(erilaji).size(), 1);
-        assertEquals(kasittelija.annaLiikevalikoimaLajinMukaan(erilaji).get(0), ele2);
-        assertEquals(kasittelija.annaLiikevalikoimaTilanMukaan(alkutila).size(), 1);
-        assertEquals(kasittelija.annaLiikevalikoimaTilanMukaan(alkutila).get(0), ele);
+        assertEquals(kasittelija.suodataLajinMukaan(erilaji, null).size(), 1);
+        assertEquals(kasittelija.suodataLajinMukaan(erilaji, null).get(0), ele2);
+        assertEquals(kasittelija.suodataTilanMukaan(alkutila).size(), 1);
+        assertEquals(kasittelija.suodataTilanMukaan(alkutila).get(0), ele);
     }
     
 

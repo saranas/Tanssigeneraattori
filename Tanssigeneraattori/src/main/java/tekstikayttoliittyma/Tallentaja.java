@@ -9,6 +9,13 @@ import java.io.FileWriter;
  */
 public class Tallentaja {
     
+    /**
+     * Metodi kirjoittaa annetun Stringin tiedostoon.
+     * 
+     * @param tiedostonNimi
+     * @param teksti
+     * @throws Exception 
+     */
     public void kirjoitaTiedostoon(String tiedostonNimi, String teksti) throws Exception {
         FileWriter kirjoittaja = new FileWriter(tiedostonNimi);
         kirjoittaja.write(teksti);

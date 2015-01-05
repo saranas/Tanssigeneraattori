@@ -3,10 +3,6 @@ package liikkeidenmallinnus;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
-import liikkeidenmallinnus.Liike;
-import liikkeidenmallinnus.LiikeElementti;
-import liikkeidenmallinnus.Tanssilaji;
-import liikkeidenmallinnus.Tila;
 
 /**
  * Luokka lukee tiedostoa, johon informaatio eri tanssiliikkeistä on
@@ -56,18 +52,19 @@ public class LiikevarastonKasittelija {
      * mikä on annettu parametrina.
      * 
      * @param valittulaji
+     * @param pohjalista
      * @return lista liikkeitä valitun lajin mukaan
      */
-    public ArrayList<Liike> annaLiikevalikoimaLajinMukaan(Tanssilaji valittulaji) {
-        ArrayList<Liike> lajinliikkeet;
-        lajinliikkeet = new ArrayList<Liike>();
+    public ArrayList<Liike> suodataLajinMukaan(Tanssilaji valittulaji, ArrayList<Liike> pohjalista) {
+        ArrayList<Liike> liikkeetLajinMukaan;
+        liikkeetLajinMukaan = new ArrayList<Liike>();
 
-        for (Liike liike : this.annaLiikevalikoima()) {
+        for (Liike liike : pohjalista) {
             if (liike.getTanssilaji().equals(valittulaji)) {
-                lajinliikkeet.add(liike);
+                liikkeetLajinMukaan.add(liike);
             }
         }
-        return lajinliikkeet;
+        return liikkeetLajinMukaan;
     }
     
     /**
@@ -75,13 +72,14 @@ public class LiikevarastonKasittelija {
      * sama kuin parametrina annetti tila.
      * 
      * @param tila
+     * @param pohjalista
      * @return lista liikkeitä alkutilan mukaan
      */
-    public ArrayList<Liike> annaLiikevalikoimaTilanMukaan(Tila tila) {
+    public ArrayList<Liike> suodataTilanMukaan(Tila tila, ArrayList<Liike> pohjalista) {
         ArrayList<Liike> liikkeetTilanMukaan;
         liikkeetTilanMukaan = new ArrayList<Liike>();
         
-        for (Liike liike : this.annaLiikevalikoima()) {
+        for (Liike liike : pohjalista) {
             if (liike.getAlkutila().equals(tila)) {
                 liikkeetTilanMukaan.add(liike);
             }

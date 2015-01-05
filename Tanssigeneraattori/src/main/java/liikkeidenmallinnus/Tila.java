@@ -1,7 +1,8 @@
 package liikkeidenmallinnus;
 
 /**
- * Luokka säilöö Liikkeen alkutilan ja lopputilan
+ * Luokka säilöö Liikkeen alkutilan ja lopputilan.
+ * Sallii myös tilojen vertailun.
  * 
  * @author Akkanen
  */

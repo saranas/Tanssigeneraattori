@@ -8,14 +8,15 @@ import liikkeidenmallinnus.LiikevarastonKasittelija;
 import liikkeidenmallinnus.Tanssilaji;
 
 /**
- *
+ * 
+ * 
  * @author Akkanen
  */
-public class Paaohjelma {
+public class Tanssigeneraattori {
 
     public static void main(String[] args) {
 
-        Scanner lukija = new Scanner(System.in);
+        //Scanner lukija = new Scanner(System.in);
         LiikevarastonKasittelija kasittelija = new LiikevarastonKasittelija("liikevarasto.txt");
         //Tekstikayttoliittyma tekstikali = new Tekstikayttoliittyma(kasittelija, lukija);
         kasittelija.lue();

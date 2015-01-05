@@ -1,5 +1,11 @@
 package liikkeidenmallinnus;
 
+/**
+ * Luokka säilöö Liikkeen tanssilajin.
+ * Sallii myös tanssilajien vertailun.
+ * 
+ * @author Akkanen
+ */
 public class Tanssilaji  {
     private String nimi;
     

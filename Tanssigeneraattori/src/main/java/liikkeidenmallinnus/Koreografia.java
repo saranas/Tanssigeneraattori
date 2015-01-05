@@ -45,7 +45,7 @@ public class Koreografia {
     }
     
     /**
-     * Palauttaa Liikesarjan listan viimeisen liikkeen lopputilan, koska se on näin ollen
+     * Palauttaa listan viimeisen liikkeen lopputilan, koska se on näin ollen
      * koko Koreografian lopputila. Jos liikkeitä ei ole vielä lisätty, palauttaa
      * tyhjän tilan.
      *
@@ -84,15 +84,6 @@ public class Koreografia {
         }
         //koreografiaTekstina = koreografiaTekstina + "\nTanssin kesto " + this.tanssinKesto() + " iskua";
         return koreografiaTekstina;       
-    }
-    
-    /**
-     * Metodi tulostaa koreografian tekstimuodossa.
-     */
-    public void tulostaKoreografia() {
-        System.out.println();
-        System.out.println(this.annaKoreografiaTekstina());
-        System.out.println();
     }
 
     public String getNimi() {

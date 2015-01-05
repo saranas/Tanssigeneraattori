@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Luokka on tehty mahdollista tulevaisuuden toiminnallisuutta varten.
- * Luokka antaa käyttäjälle mahdollisuuden yhdistellä pieniä Liike-Elementtejä
+ * Luokka antaa käyttäjälle mahdollisuuden yhdistellä pieniä LiikeElementtejä
  * nimetyiksi Liikesarjoiksi. 
  * 
  * Liikesarja-luokkaa käytetään kuitenkin myös koko Koreografian säilömiseen

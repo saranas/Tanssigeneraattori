@@ -10,6 +10,7 @@ import liikkeidenmallinnus.Tanssilaji;
 /**
  * Luokka vastaa käyttäjän kanssa kommunikoimisesta.
  * Luokka esittelee liikkeet ja käsittelee käyttäjän syötteitä. 
+ * Tulee jäämään pois käytöstä graafisen käyttöliittymän valmistuessa.
  * 
  * @author Akkanen
  */
@@ -94,9 +95,18 @@ public class Tekstikayttoliittyma {
                 }
             }
 
-            this.uusiKoreografia.tulostaKoreografia();
+            this.tulostaKoreografia();
 
         }
+    }
+    
+    /**
+     * Metodi tulostaa koreografian tekstimuodossa.
+     */
+    public void tulostaKoreografia() {
+        System.out.println();
+        System.out.println(this.uusiKoreografia.annaKoreografiaTekstina());
+        System.out.println();
     }
     
     public void kysyTallennetaanko() {
