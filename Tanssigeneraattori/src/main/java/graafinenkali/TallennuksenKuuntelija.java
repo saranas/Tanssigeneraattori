@@ -4,6 +4,8 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -16,6 +18,7 @@ public class TallennuksenKuuntelija implements ActionListener {
     private Tallentaja tallentaja;
     private JFileChooser valitsija;
     private Component frame;
+    private FileWriter kirjoittaja;
 
     public TallennuksenKuuntelija(Koreografia koreografia, Component frame) {
         this.koreografia = koreografia;
@@ -23,27 +26,32 @@ public class TallennuksenKuuntelija implements ActionListener {
         this.valitsija = new JFileChooser();
         this.frame = frame;
     }
-
+    
+    /*
+     * Näyttää tiedostonvalitsijan ja tallentaa koreografian tekstitiedostoon
+     * 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
 
         valitsija.setMultiSelectionEnabled(false);
-        valitsija.showSaveDialog(frame);
-        File tiedostonimi = valitsija.getSelectedFile();
-        System.out.println(tiedostonimi.getName());
-        System.out.println(tiedostonimi.getAbsolutePath());
+        int paatos = valitsija.showSaveDialog(frame);
 
-        try {
-            //        String tanssinTiedostonimi = koreografia.getNimi() + ".txt";
-//        try {
-//            tallentaja.kirjoitaTiedostoon(tanssinTiedostonimi, koreografia.annaKoreografiaTekstina());
-//        } catch (Exception ex) {
-//            Logger.getLogger(TallennuksenKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        if (paatos == JFileChooser.APPROVE_OPTION) {
 
-            tallentaja.kirjoitaTiedostoon(tiedostonimi.getName(), koreografia.annaKoreografiaTekstina());
-        } catch (Exception ex) {
-            Logger.getLogger(TallennuksenKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
+            try {
+
+                File tiedostonimi = valitsija.getSelectedFile();
+                
+                try (FileWriter kirjoittaja = new FileWriter(new File(
+                        tiedostonimi.getCanonicalPath() + ".txt"))) {
+                    kirjoittaja.write(koreografia.annaKoreografiaTekstina());
+                    kirjoittaja.close();
+                }
+
+            } catch (IOException ex) {
+                Logger.getLogger(TallennuksenKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
     }
