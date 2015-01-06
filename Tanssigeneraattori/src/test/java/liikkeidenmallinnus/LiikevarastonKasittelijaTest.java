@@ -5,6 +5,7 @@
  */
 package liikkeidenmallinnus;
 
+import java.util.ArrayList;
 import liikkeidenmallinnus.LiikeElementti;
 import liikkeidenmallinnus.LiikeElementti;
 import liikkeidenmallinnus.Tila;
@@ -34,6 +35,7 @@ public class LiikevarastonKasittelijaTest {
     Tanssilaji erilaji;
     Tila alkutila;
     Tila lopputila;
+    ArrayList<Liike> lista;
     
     @Before
     public void setUp() {
@@ -44,14 +46,15 @@ public class LiikevarastonKasittelijaTest {
         lopputila = new Tila("lopputila");
         ele = new LiikeElementti(laji, "ele", 1, alkutila, lopputila);
         ele2 = new LiikeElementti(erilaji, "ele2", 2, lopputila, alkutila);
+        lista = kasittelija.annaLiikevalikoima();
     }
     
     @Test
     public void alkuasetuksetOikein() {
         assertTrue(kasittelija.annaLiikevalikoima().isEmpty()); 
         assertTrue(kasittelija.annaTanssilajit().isEmpty());
-        assertTrue(kasittelija.suodataLajinMukaan(laji, null).isEmpty());
-        assertTrue(kasittelija.suodataTilanMukaan(lopputila).isEmpty());
+        assertTrue(kasittelija.suodataLajinMukaan(laji, lista).isEmpty());
+        assertTrue(kasittelija.suodataTilanMukaan(lopputila, lista).isEmpty());
     }
     
     @Test
@@ -65,10 +68,10 @@ public class LiikevarastonKasittelijaTest {
     public void suodattimetToimivat() {
         kasittelija.annaLiikevalikoima().add(ele);
         kasittelija.annaLiikevalikoima().add(ele2);
-        assertEquals(kasittelija.suodataLajinMukaan(erilaji, null).size(), 1);
-        assertEquals(kasittelija.suodataLajinMukaan(erilaji, null).get(0), ele2);
-        assertEquals(kasittelija.suodataTilanMukaan(alkutila).size(), 1);
-        assertEquals(kasittelija.suodataTilanMukaan(alkutila).get(0), ele);
+        assertEquals(kasittelija.suodataLajinMukaan(erilaji, lista).size(), 1);
+        assertEquals(kasittelija.suodataLajinMukaan(erilaji, lista).get(0), ele2);
+        assertEquals(kasittelija.suodataTilanMukaan(alkutila, lista).size(), 1);
+        assertEquals(kasittelija.suodataTilanMukaan(alkutila, lista).get(0), ele);
     }
     
 

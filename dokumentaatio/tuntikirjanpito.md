@@ -20,5 +20,5 @@
 * 2.1.   1h graafinen käli toimii jotenkuten
 * 4.1.   1h lataus ja tallennus
 
-* 5.1.   7h kirjoitettu lisää testejä, refaktorointia
+* 5.1.   10h kirjoitettu lisää testejä, refaktorointia
 

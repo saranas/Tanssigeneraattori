@@ -2,6 +2,12 @@ ecd | doubleVasen | 4 | seisooPainoOikealla | seisooPainoVasemmalla
 ecd | doubleOikea | 4 | seisooPainoVasemmalla | seisooPainoOikealla
 ecd | simpleVasen | 2 | seisooPainoOikealla | seisooPainoVasemmalla
 ecd | simpleOikea | 2 | seisooPainoVasemmalla | seisooPainoOikealla
-ecd | sidingVasen | 8 | seisooPainoVasemmalla | seisooPainoVasemmalla
+ecd | sidingVasen | 8 | seisooPainoOikealla | seisooPainoVasemmalla
+ecd | ajatonPainonsiirto | 0 | seisooPainoVasemmalla | seisooPainoOikealla
 parapara | koputusOikea | 2 | seisooPainoVasemmalla | seisooPainoOikealla
+parapara | koputusVasen | 2 | seisooPainoOikealla | seisooPainoVasemmalla
 parapara | fullsweepOikea | 2 | seisooPainoVasemmalla | seisooPainoOikealla
+parapara | fullsweepVasen | 2 | seisooPainoOikealla | seisooPainoVasemmalla
+zouk | perusaskelVasen | 4 | seisooPainoOikealla | seisooPainoVasemmalla
+zouk | perusaskelOikea| 4 | seisooPainoVasemmalla | seisooPainoOikealla
+whatever | turhaLiikeJollaOnTosiPitkaNimi | 0 | seisooPainoVasemmalla | seisooPainoVasemmalla

@@ -35,6 +35,11 @@ public class LiikelistaSuodatin {
         
         String valittulaji;
         valittulaji = (String) lajivalikko.getSelectedItem();
+        
+        if (valittulaji.equals("kaikki")) {
+            return taulukoija.annaLiikkeetTaulukkona(suodatettavaLista);
+        }
+        
         Tanssilaji laji = new Tanssilaji(valittulaji);
         
         suodatettavaLista = kasittelija.suodataLajinMukaan(laji, suodatettavaLista);

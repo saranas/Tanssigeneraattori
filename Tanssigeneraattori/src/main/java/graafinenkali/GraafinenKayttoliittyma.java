@@ -4,6 +4,7 @@ import kayttoliittymanapu.Taulukontekija;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class GraafinenKayttoliittyma implements Runnable {
     public void run() {
         frame = new JFrame("Tanssigeneraattori");
         frame.setPreferredSize(new Dimension(600, 600));
+        frame.setMinimumSize(new Dimension(300, 300));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,9 +54,12 @@ public class GraafinenKayttoliittyma implements Runnable {
         ArrayList<Tanssilaji> tanssilajilista = kasittelija.annaTanssilajit();
         String[] tanssilista = taulukoija.annaLajitTaulukkona(tanssilajilista);
         JComboBox tanssivalikko = new JComboBox(tanssilista);
+        String kaikki = "kaikki";
+        tanssivalikko.insertItemAt(kaikki, 0);
+        tanssivalikko.setSelectedIndex(0);
         
         //Palkki tanssin nimen syöttämiseen
-        JTextField nimenvalintapalkki = new JTextField("Tanssin nimi");       
+        JTextField nimenvalintapalkki = new JTextField("Tanssin nimi");
 
         paneeli1.add(tanssivalikko);
         paneeli1.add(nimenvalintapalkki);
@@ -67,7 +72,10 @@ public class GraafinenKayttoliittyma implements Runnable {
         ArrayList<Liike> liikkeet = kasittelija.annaLiikevalikoima();
         String[] liiketaulukko = taulukoija.annaLiikkeetTaulukkona(liikkeet);
         liikelista = new JList(liiketaulukko); 
-        JScrollPane liikevalikko = new JScrollPane(liikelista);      
+        JScrollPane liikevalikko = new JScrollPane(liikelista); 
+        liikevalikko.setPreferredSize(new Dimension(200, 110));
+        liikevalikko.setMinimumSize(new Dimension(40, 40));
+        liikevalikko.setMaximumSize(new Dimension(200, 700));
         liikevalikko.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
         //Luo napit liikkeiden lisäykseen ja poistoon
@@ -81,24 +89,24 @@ public class GraafinenKayttoliittyma implements Runnable {
         koreografiaEsitys.setEditable(false);
         koreografiaEsitys.setText("");
         JScrollPane koreografiaesitysSkrolli = new JScrollPane(koreografiaEsitys);
-        koreografiaesitysSkrolli.setVerticalScrollBarPolicy(
-                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        koreografiaesitysSkrolli.setPreferredSize(new Dimension(250, 145));
-        koreografiaesitysSkrolli.setMinimumSize(new Dimension(10, 10));
+        koreografiaesitysSkrolli.setPreferredSize(new Dimension(200, 110));
+        koreografiaesitysSkrolli.setMinimumSize(new Dimension(20, 20));
+        koreografiaesitysSkrolli.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         
         
         napit.add(lisaysnappi);
         napit.add(poistonappi);
         paneeli2.add(liikevalikko);
         paneeli2.add(napit);
-        paneeli2.add(koreografiaEsitys);
+        paneeli2.add(koreografiaesitysSkrolli);
         
         
-        JPanel paneeli3 = new JPanel();
+        JPanel paneeli3 = new JPanel(new FlowLayout(FlowLayout.TRAILING));
 
         //JButton latausnappi = new JButton("Lataa");
         JLabel kesto = new JLabel("Tanssin kesto: " + String.valueOf(koreografia.tanssinKesto()));
         JButton tallennusnappi = new JButton("Tallenna");
+        tallennusnappi.setEnabled(true);
 
         //paneeli3.add(latausnappi);
         paneeli3.add(kesto);
