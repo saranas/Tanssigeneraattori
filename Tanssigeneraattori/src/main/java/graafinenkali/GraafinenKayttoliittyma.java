@@ -29,7 +29,7 @@ public class GraafinenKayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Tanssigeneraattori");
-        frame.setPreferredSize(new Dimension(600, 600));
+        frame.setPreferredSize(new Dimension(500, 500));
         frame.setMinimumSize(new Dimension(300, 300));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

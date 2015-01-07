@@ -1,6 +1,6 @@
 Aihe: Tanssigeneraattori
 
-Toteutetaan ohjelma, jolla käyttäjä voi valita ja asettaa peräkkäin tanssiliikkeitä, joilla on tietty kesto ja ehtoja sijoittelusta muihin liikkeisiin nähden. Liikevalikoima vaihtelee valitun tanssilajin mukaan, mutta eri tanssilajien liikkeiden sisällyttäminen samaan koreografiaan on mahdollista. Koreografia on myös mahdollista generoida satunnaisesti.
+Toteutetaan ohjelma, jolla käyttäjä voi valita ja asettaa peräkkäin tanssiliikkeitä, joilla on tietty kesto ja ehtoja sijoittelusta muihin liikkeisiin nähden. Liikevalikoima vaihtelee valitun tanssilajin mukaan, mutta eri tanssilajien liikkeiden sisällyttäminen samaan koreografiaan on mahdollista. Koreografia voidaan myös generoida satunnaisesti.
 
 Käyttäjät: Ohjelmasta kiinnostuneet yksityishenkilöt
 

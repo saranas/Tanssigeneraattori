@@ -19,4 +19,4 @@ zouk | perusaskelVasen | 4 | seisooPainoOikealla | seisooPainoVasemmalla
 zouk | perusaskelOikea| 4 | seisooPainoVasemmalla | seisooPainoOikealla
 zouk | painonsiirtoVO | 2 | seisooPainoVasemmalla | seisooPainoOikealla
 zouk | painonsiirtoOV | 2 | seisooPainoOikealla | seisooPainoVasemmalla
-zouk | elastico | 8 | seisooPainoOikealla | seisooPainoVasemmalla
+zouk | elastico | 8 | seisooPainoOikealla | seisooPainoOikealla
