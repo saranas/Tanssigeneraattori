@@ -9,6 +9,12 @@ import static liikkeidenmallinnus.Liikesarja.TYHJA_TILA;
 import liikkeidenmallinnus.LiikevarastonKasittelija;
 import liikkeidenmallinnus.Tanssilaji;
 
+/**
+ * Luokka toimii apuvälineenä painikkeiden ja lajivalikon kuuntelijoille,
+ * koska ne kaikki joutuvat tarkastamaan ja päivittämään useita samoja kenttiä.
+ * 
+ * @author Akkanen
+ */
 public class LiikelistaSuodatin {
 
     private JComboBox lajivalikko;
@@ -25,7 +31,14 @@ public class LiikelistaSuodatin {
         this.kasittelija = kasittelija;
         this.liikelista = liikelista;
     }   
-
+    
+    /**
+     * Metodi päivittää liikelistan näyttämään ainoastaan ne liikkeet,
+     * joihin on mahdollista lähteä viimeisimpänä lisätystä liikkeestä.
+     * Metodi ottaa huomioon mikä tanssilaji on sillä hetkellä valittuna.
+     * 
+     * @return suodatettu lista liikkeitä
+     */
     public String[] suodata() {
         ArrayList<Liike> suodatettavaLista = kasittelija.annaLiikevalikoima();
 

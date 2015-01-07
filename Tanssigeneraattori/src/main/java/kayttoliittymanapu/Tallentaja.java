@@ -5,6 +5,8 @@ import java.io.FileWriter;
 
 /**
  * Luokka kirjoittaa tekstitiedostoon ohjelmassa luodun koreografian.
+ * Tekstikäyttöliittymän työkalu, graafisessa käyttöliittymässä samantyyppinen 
+ * toiminnallisuus on toteutettu Tallennuksenkuuntelijassa.
  * 
  * @author Akkanen
  */
@@ -23,10 +25,5 @@ public class Tallentaja {
         kirjoittaja.close();
     }
     
-    public void kirjoitaF(File tiedosto, String teksti) throws Exception {
-        FileWriter kirjoittaja = new FileWriter(tiedosto);
-        kirjoittaja.write(teksti);
-        kirjoittaja.close();
-    }
 
 }

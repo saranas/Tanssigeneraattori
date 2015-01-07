@@ -1,7 +1,6 @@
 package liikkeidenmallinnus;
 
 import java.util.ArrayList;
-import static liikkeidenmallinnus.Liikesarja.TYHJA_TILA;
 
 /**
  * Luokka säilöö käyttäjän koreografiaan valitsemat liikkeet Liikesarja-olioon.

@@ -3,11 +3,20 @@ ecd | doubleOikea | 4 | seisooPainoVasemmalla | seisooPainoOikealla
 ecd | simpleVasen | 2 | seisooPainoOikealla | seisooPainoVasemmalla
 ecd | simpleOikea | 2 | seisooPainoVasemmalla | seisooPainoOikealla
 ecd | sidingVasen | 8 | seisooPainoOikealla | seisooPainoVasemmalla
-ecd | ajatonPainonsiirto | 0 | seisooPainoVasemmalla | seisooPainoOikealla
+ecd | ajatonPainonsiirtoVO | 0 | seisooPainoVasemmalla | seisooPainoOikealla
+ecd | ajatonPainonsiirtoOV | 0 | seisooPainoOikealla | seisooPainoVasemmalla
 parapara | koputusOikea | 2 | seisooPainoVasemmalla | seisooPainoOikealla
 parapara | koputusVasen | 2 | seisooPainoOikealla | seisooPainoVasemmalla
 parapara | fullsweepOikea | 2 | seisooPainoVasemmalla | seisooPainoOikealla
 parapara | fullsweepVasen | 2 | seisooPainoOikealla | seisooPainoVasemmalla
+parapara | maalausOikea | 2 | seisooPainoVasemmalla | seisooPainoOikealla
+parapara | maalausVasen | 2 | seisooPainoOikealla | seisooPainoVasemmalla
+parapara | tökkäysOikea | 2 | seisooPainoVasemmalla | seisooPainoOikealla
+parapara | tökkäysVasen | 2 | seisooPainoOikealla | seisooPainoVasemmalla
+parapara | pyöräytysAukiJaKiinni | 4 | seisooPainoVasemmalla | seisooPainoVasemmalla
+parapara | pudotus | 4 | seisooPainoVasemmalla | seisooPainoVasemmalla
 zouk | perusaskelVasen | 4 | seisooPainoOikealla | seisooPainoVasemmalla
 zouk | perusaskelOikea| 4 | seisooPainoVasemmalla | seisooPainoOikealla
-whatever | turhaLiikeJollaOnTosiPitkaNimi | 0 | seisooPainoVasemmalla | seisooPainoVasemmalla
+zouk | painonsiirtoVO | 2 | seisooPainoVasemmalla | seisooPainoOikealla
+zouk | painonsiirtoOV | 2 | seisooPainoOikealla | seisooPainoVasemmalla
+zouk | elastico | 8 | seisooPainoOikealla | seisooPainoVasemmalla

@@ -14,11 +14,12 @@ Kaikkien käyttäjien toiminnot:
 * valmiin koreografian tallentaminen tiedostoon
 
 
-Mahdollisia tulevia ominaisuuksia:
+Mahdollisia tulevia laajennuksia:
 
-* Yksittäisten liike-elementtien yhdisteleminen liikesarjoiksi
+* Yksittäisten liike-elementtien yhdisteleminen liikesarjoiksi, jotka voi katkaista keskeltä
 * Uusien liikkeiden luominen
 * Luodun koreografian lataaminen ja muokkaaminen
+* Musiikin fraasien mallintaminen
 
 
 

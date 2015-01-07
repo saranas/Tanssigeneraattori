@@ -21,4 +21,6 @@
 * 4.1.   1h lataus ja tallennus
 
 * 5.1.   10h kirjoitettu lisää testejä, refaktorointia
+* 6.1.   2h tallennusvalikko purkattu ja jesaroitu kasaan
+* 6.1.   2h arpojaa väsätty
 

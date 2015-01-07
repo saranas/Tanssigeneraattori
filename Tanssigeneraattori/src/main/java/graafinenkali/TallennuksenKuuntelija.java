@@ -12,13 +12,18 @@ import javax.swing.JFileChooser;
 import liikkeidenmallinnus.Koreografia;
 import kayttoliittymanapu.Tallentaja;
 
+/**
+ * Luokka kuuntelee tallennuspainiketta ja tallentaa koreografian
+ * valittuun sijaintiin tekstitiedostona.
+ * 
+ * @author Akkanen
+ */
 public class TallennuksenKuuntelija implements ActionListener {
 
     private Koreografia koreografia;
     private Tallentaja tallentaja;
     private JFileChooser valitsija;
     private Component frame;
-    private FileWriter kirjoittaja;
 
     public TallennuksenKuuntelija(Koreografia koreografia, Component frame) {
         this.koreografia = koreografia;

@@ -6,6 +6,12 @@ import javax.swing.JEditorPane;
 import javax.swing.JTextField;
 import liikkeidenmallinnus.Koreografia;
 
+/**
+ * Kuuntelee tekstikenttää, johon voi syöttää tanssin nimen.
+ * Asettaa annetun nimen koreografialle.
+ * 
+ * @author Akkanen
+ */
 public class TanssinNimiKuuntelija implements ActionListener {
     private Koreografia koreografia;
     private JEditorPane koreografiaEsitys;
