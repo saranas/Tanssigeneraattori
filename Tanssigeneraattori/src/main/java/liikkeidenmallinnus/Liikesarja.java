@@ -3,12 +3,13 @@ package liikkeidenmallinnus;
 import java.util.ArrayList;
 
 /**
- * Luokka on tehty mahdollista tulevaisuuden toiminnallisuutta varten. Luokka
- * antaa käyttäjälle mahdollisuuden yhdistellä pieniä LiikeElementtejä
- * nimetyiksi Liikesarjoiksi.
+ * Luokka antaa käyttäjälle mahdollisuuden yhdistellä pieniä LiikeElementtejä
+ * nimetyiksi Liikesarjoiksi. Luokka on tehty mahdollista tulevaisuuden 
+ * toiminnallisuutta varten.
  *
  * Liikesarja-luokkaa käytetään kuitenkin myös koko Koreografian säilömiseen
- * hyvin samankaltaisten ominaisuuksiensa johdosta.
+ * hyvin samankaltaisten ominaisuuksiensa johdosta. Myös Arpoja-luokka käyttää
+ * Liikesarjaa sellaisenaan.
  *
  * @author Akkanen
  */

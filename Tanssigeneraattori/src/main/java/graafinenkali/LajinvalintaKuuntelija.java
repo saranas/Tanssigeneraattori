@@ -7,7 +7,8 @@ import kayttoliittymanapu.LiikelistaSuodatin;
 
 /**
  * Kuuntelee drop down -valikkoa, jossa on valittavana
- * eri tanssilajeja.
+ * eri tanssilajeja, ja asettaa liikelistan näyttämään
+ * valitun lajin liikkeet.
  * 
  * @author Akkanen
  */

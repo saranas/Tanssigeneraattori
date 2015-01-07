@@ -23,5 +23,5 @@
 * 5.1.   10h kirjoitettu lisää testejä, refaktorointia
 * 6.1.   2h tallennusvalikko purkattu ja jesaroitu kasaan
 * 6.1.   3h arpojaa väsätty
-* 7.1.   1h dokumentaation päivittämistä
+* 7.1.   4h dokumentaation päivittämistä
 

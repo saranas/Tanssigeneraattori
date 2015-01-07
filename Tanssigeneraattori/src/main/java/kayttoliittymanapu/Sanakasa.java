@@ -23,10 +23,20 @@ public class Sanakasa {
         };
     }
     
+    /**
+     * Antaa satunnaisen adjektiivin taulukosta.
+     * 
+     * @return satunnainen adjektiivi
+     */
     public String annaAdjektiivi() {
         return adjektiivit[random.nextInt(adjektiivit.length)];
     }
     
+    /**
+     * Antaa satunnaisen substantiivin taulukosta.
+     * 
+     * @return satunnainen substantiivi
+     */
     public String annaSubstantiivi() {
         return substantiivit[random.nextInt(substantiivit.length)];
     }

@@ -41,7 +41,7 @@ public class LiikevarastonKasittelija {
     /**
      * Metodi palauttaa säiliötiedoston kohdat listana Liike-olioita.
      *
-     * @return
+     * @return lista liikkeitä
      */
     public ArrayList<Liike> annaLiikevalikoima() {
         return this.liikevalikoima;
