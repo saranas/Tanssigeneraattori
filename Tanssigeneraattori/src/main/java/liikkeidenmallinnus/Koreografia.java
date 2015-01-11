@@ -73,13 +73,14 @@ public class Koreografia {
     public String annaKoreografiaTekstina() {
         String koreografiaTekstina = this.getNimi() + "\n\n";
         for (int i = 0; i < getKoreografianLiikkeet().size(); i++) {
-            if (i % 2 != 0 || i == 1) {
-                koreografiaTekstina = koreografiaTekstina + 
-                        this.getKoreografianLiikkeet().get(i).getNimi() + "\n";
-            } else {
-                koreografiaTekstina = koreografiaTekstina + 
-                        this.getKoreografianLiikkeet().get(i).getNimi() + " ";
-            }
+            koreografiaTekstina = koreografiaTekstina + this.getKoreografianLiikkeet().get(i).getNimi() + "\n";
+//            if (i % 2 != 0 || i == 1) {
+//                koreografiaTekstina = koreografiaTekstina + 
+//                        this.getKoreografianLiikkeet().get(i).getNimi() + "\n";
+//            } else {
+//                koreografiaTekstina = koreografiaTekstina + 
+//                        this.getKoreografianLiikkeet().get(i).getNimi() + " ";
+//            }
         }
         //koreografiaTekstina = koreografiaTekstina + "\nTanssin kesto " + this.tanssinKesto() + " iskua";
         return koreografiaTekstina;       

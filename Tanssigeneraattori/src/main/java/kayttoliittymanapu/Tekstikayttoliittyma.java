@@ -25,7 +25,9 @@ public class Tekstikayttoliittyma {
         this.kasittelija = annettuKasittelija;
         this.lukija = annettuLukija;
     }
-
+    /**
+     * Tulostaa liikevarastosta löytyvät tanssilajit
+     */
     public void esitteleTanssilajit() {
         System.out.print("Valikoimassamme on seuraavat tanssilajit: \n");
         ArrayList<Tanssilaji> tulostettavat;
@@ -35,7 +37,12 @@ public class Tekstikayttoliittyma {
         }
         System.out.println();
     }
-
+    
+    /**
+     * Tulostaa valikoimassa olevat liikkeet
+     * 
+     * @param tanssilaji 
+     */
     public void esitteleLiikkeet(Tanssilaji tanssilaji) {
         System.out.println("\nLajissa on tällaisia liikkeitä.");
         System.out.println("Valitse ja lisää mieleisesi koreografiaan.\n");
@@ -51,7 +58,13 @@ public class Tekstikayttoliittyma {
             System.out.println("Liikkeitä valitulle lajille ei ollut.");
         }
     }
-
+    
+    /**
+     * Pyytää käyttäjältä tanssilajia, ja palauttaa sen, jos syöte on
+     * kelvollinen.
+     * 
+     * @return tanssilaji
+     */
     public Tanssilaji pyydaTanssilajia() {
         System.out.print("Anna tanssilaji: ");
         
@@ -71,13 +84,19 @@ public class Tekstikayttoliittyma {
         }
     }
     
+    /**
+     * Pyytää käyttäjää antamaan koreografialle nimen.
+     */
     public void pyydaKoreografianNimea() {
         System.out.print("Anna uuden tanssikoreografian nimi: ");
         String tanssiKoreografianNimi = lukija.nextLine();
         this.uusiKoreografia = new Koreografia(tanssiKoreografianNimi);
     }
     
-    
+    /**
+     * Pyytää käyttäjää lisäämään liikkeitä koreografiaan 
+     * syöttämällä liikkeen nimi.
+     */
     public void lisaaLiikkeitaKoreografiaan() {
         while (true) {
             System.out.print("Lisää koreografiaan liikkeitä antamalla liikkeen nimi "
@@ -109,6 +128,9 @@ public class Tekstikayttoliittyma {
         System.out.println();
     }
     
+    /**
+     * Metodi kysyy tallennuksesta, ja tallentaa luodun koreografian.
+     */
     public void kysyTallennetaanko() {
         System.out.print("\nHaluatko tallentaa? (y/n) ");
         while (true) {

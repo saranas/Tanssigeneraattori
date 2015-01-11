@@ -9,6 +9,7 @@ import javax.swing.JList;
 import kayttoliittymanapu.Arpoja;
 import kayttoliittymanapu.LiikelistaSuodatin;
 import liikkeidenmallinnus.Koreografia;
+import liikkeidenmallinnus.Liike;
 import liikkeidenmallinnus.LiikevarastonKasittelija;
 import liikkeidenmallinnus.Tanssilaji;
 
@@ -26,7 +27,6 @@ public class ArvonnanKuuntelija implements ActionListener {
     private JLabel kesto;
     private Koreografia koreografia;
     private JComboBox lajivalikko;
-    private LiikevarastonKasittelija kasittelija;
 
     public ArvonnanKuuntelija(Koreografia koreografia, JEditorPane koreografiaEsitys, 
             JList liikelista, LiikelistaSuodatin suodatin, JLabel kesto, 
@@ -45,11 +45,20 @@ public class ArvonnanKuuntelija implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String valittulaji = (String) lajivalikko.getSelectedItem();
         Tanssilaji laji = new Tanssilaji(valittulaji);
-        koreografia = arpoja.arvoKoreografia(laji);
+        
+        int liikkeita = koreografia.getKoreografianLiikkeet().size();
+        for (int i = 0; i < liikkeita; i++) {
+            koreografia.poistaViimeisinLiike();
+        }
+        Koreografia arvottukoreografia = arpoja.arvoKoreografia(laji);
+        koreografia.setNimi(arvottukoreografia.getNimi());
+        for (Liike liike : arvottukoreografia.getKoreografianLiikkeet()) {
+            koreografia.lisaaLiike(liike);
+        }
         
         koreografiaEsitys.setText(koreografia.annaKoreografiaTekstina());
        
-        liikelista.setListData(suodatin.suodata());
+        liikelista.setListData(suodatin.suodata(koreografia));
         
         kesto.setText("Tanssin kesto: " + String.valueOf(koreografia.tanssinKesto()));
     }

@@ -47,7 +47,7 @@ public class LiikkeenlisayksenKuuntelija implements ActionListener {
         }
         koreografiaEsitys.setText(koreografia.annaKoreografiaTekstina());
        
-        liikelista.setListData(suodatin.suodata());
+        liikelista.setListData(suodatin.suodata(koreografia));
         
         kesto.setText("Tanssin kesto: " + String.valueOf(koreografia.tanssinKesto()));
     }

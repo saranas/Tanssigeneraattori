@@ -1,5 +1,6 @@
 package graafinenkali;
 
+import kayttoliittymanapu.KoreografianLukija;
 import kayttoliittymanapu.Taulukontekija;
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -102,22 +103,26 @@ public class GraafinenKayttoliittyma implements Runnable {
         paneeli2.add(koreografiaesitysSkrolli);
 
         JPanel paneeli3 = new JPanel(new FlowLayout(FlowLayout.TRAILING));
-        
+
         JButton arvontanappi = new JButton("Random!");
-        //JButton latausnappi = new JButton("Lataa");
+        JButton latausnappi = new JButton("Lataa");
         JLabel kesto = new JLabel("Tanssin kesto: " + String.valueOf(koreografia.tanssinKesto()));
         JButton tallennusnappi = new JButton("Tallenna");
         tallennusnappi.setEnabled(true);
-        
+
+        paneeli3.add(latausnappi);
         paneeli3.add(arvontanappi);
-        //paneeli3.add(latausnappi);
         paneeli3.add(kesto);
         paneeli3.add(tallennusnappi);
 
-        suodatin = new LiikelistaSuodatin(tanssivalikko, koreografia,
+        suodatin = new LiikelistaSuodatin(tanssivalikko, 
                 taulukoija, kasittelija, liikelista);
-        
-        ArvonnanKuuntelija arpoja = new ArvonnanKuuntelija(koreografia, 
+
+        LatauksenKuuntelija lataaja = new LatauksenKuuntelija(suodatin, kasittelija,
+                koreografia, liikelista, koreografiaEsitys, kesto);
+        latausnappi.addActionListener(lataaja);
+
+        ArvonnanKuuntelija arpoja = new ArvonnanKuuntelija(koreografia,
                 koreografiaEsitys, liikelista, suodatin, kesto, kasittelija, tanssivalikko);
         arvontanappi.addActionListener(arpoja);
 
@@ -129,7 +134,7 @@ public class GraafinenKayttoliittyma implements Runnable {
                 suodatin, koreografia, koreografiaEsitys, kesto, liikelista);
         poistonappi.addActionListener(poistaja);
 
-        LajinvalintaKuuntelija lajivalitsija = new LajinvalintaKuuntelija(suodatin, liikelista);
+        LajinvalintaKuuntelija lajivalitsija = new LajinvalintaKuuntelija(suodatin, liikelista, koreografia);
         tanssivalikko.addActionListener(lajivalitsija);
 
         TanssinNimiKuuntelija nimeaja = new TanssinNimiKuuntelija(

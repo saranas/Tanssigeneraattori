@@ -8,16 +8,30 @@ import liikkeidenmallinnus.Liikesarja;
 import liikkeidenmallinnus.LiikevarastonKasittelija;
 import liikkeidenmallinnus.Tanssilaji;
 
+/**
+ * Luokka tarjoaa metodin, joka arpoo satunnasista liikkeistä koostuvan koreografian,
+ * ja sille satunnaisen nimen Sanakasa-luokan avulla. 
+ * 
+ * @author Akkanen
+ */
 public class Arpoja {
 
     private LiikevarastonKasittelija kasittelija;
     private Random random;
+    private Sanakasa sanakasa = new Sanakasa();
 
     public Arpoja(LiikevarastonKasittelija kasittelija) {
         this.kasittelija = kasittelija;
         this.random = new Random();
     }
-
+    
+    /**
+     * Metodi arpoo satunnaisen koreografian ja asettaa sen katseltavaksi
+     * ja muokattavaksi ohjelmaan.
+     * 
+     * @param laji
+     * @return 
+     */
     public Koreografia arvoKoreografia(Tanssilaji laji) {
         ArrayList<Liike> liikevalikoima = kasittelija.annaLiikevalikoima();
         if (!laji.getNimi().equals("kaikki")) {
@@ -60,9 +74,14 @@ public class Arpoja {
         }
         return randomKoreografia;
     }
-
+    
+    /**
+     * Metodi pyytää Sanakasa-luokalta satunnaiset sanat, ja antaa ne.
+     * 
+     * @return 
+     */
     public String arvoNimi() {
-        return "Randomi tanssi!";
+        return sanakasa.annaAdjektiivi() + " " + sanakasa.annaSubstantiivi();
     }
 
 }

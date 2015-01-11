@@ -24,4 +24,6 @@
 * 6.1.   2h tallennusvalikko purkattu ja jesaroitu kasaan
 * 6.1.   3h arpojaa väsätty
 * 7.1.   4h dokumentaation päivittämistä
+* 8.1.   5h demotilaisuus, katselmointi 2
+* 10.1.  3h lataustoiminnon tekeminen ja muuta viimeistelyä
 

@@ -8,7 +8,7 @@ import liikkeidenmallinnus.LiikevarastonKasittelija;
 import liikkeidenmallinnus.Tanssilaji;
 
 /**
- * 
+ * Ohjelman avulla voi luoda ja muokata tanssikoreografioita.
  * 
  * @author Akkanen
  */

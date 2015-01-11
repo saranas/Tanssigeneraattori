@@ -8,6 +8,12 @@ import javax.swing.JList;
 import kayttoliittymanapu.LiikelistaSuodatin;
 import liikkeidenmallinnus.Koreografia;
 
+/**
+ * Luokka kuuntelee poistonappia, ja poistaa koreografian viimeisimmän 
+ * liikkeen. 
+ * 
+ * @author Akkanen
+ */
 public class LiikkeenpoistonKuuntelija implements ActionListener {
 
     private JEditorPane koreografiaEsitys;
@@ -35,7 +41,7 @@ public class LiikkeenpoistonKuuntelija implements ActionListener {
 
         koreografiaEsitys.setText(koreografia.annaKoreografiaTekstina());
        
-        liikelista.setListData(suodatin.suodata());
+        liikelista.setListData(suodatin.suodata(koreografia));
         
         kesto.setText("Tanssin kesto: " + String.valueOf(koreografia.tanssinKesto()));
     }

@@ -41,8 +41,4 @@ public class Tila {
         return true;
     }
     
-    
-    
-    
-
 }

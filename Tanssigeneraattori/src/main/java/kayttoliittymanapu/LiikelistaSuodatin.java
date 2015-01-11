@@ -18,15 +18,13 @@ import liikkeidenmallinnus.Tanssilaji;
 public class LiikelistaSuodatin {
 
     private JComboBox lajivalikko;
-    private Koreografia koreografia;
     private Taulukontekija taulukoija;
     private LiikevarastonKasittelija kasittelija;
     private JList liikelista;
 
-    public LiikelistaSuodatin(JComboBox lajivalikko, Koreografia koreografia, 
+    public LiikelistaSuodatin(JComboBox lajivalikko,  
             Taulukontekija taulukoija, LiikevarastonKasittelija kasittelija, JList liikelista) {
         this.lajivalikko = lajivalikko;
-        this.koreografia = koreografia;
         this.taulukoija = taulukoija;
         this.kasittelija = kasittelija;
         this.liikelista = liikelista;
@@ -37,9 +35,10 @@ public class LiikelistaSuodatin {
      * joihin on mahdollista lähteä viimeisimpänä lisätystä liikkeestä.
      * Metodi ottaa huomioon mikä tanssilaji on sillä hetkellä valittuna.
      * 
+     * @param koreografia
      * @return suodatettu lista liikkeitä
      */
-    public String[] suodata() {
+    public String[] suodata(Koreografia koreografia) {
         ArrayList<Liike> suodatettavaLista = kasittelija.annaLiikevalikoima();
 
         if (koreografia.getLopputila() != TYHJA_TILA) {
