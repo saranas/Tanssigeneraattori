@@ -48,9 +48,9 @@ public class LiikevarastonKasittelija {
     }
 
     /**
-     * Metodi palauttaa listan liikkeitä, joilla on sama laji, kuin
-     * mikä on annettu parametrina.
-     * 
+     * Metodi palauttaa listan liikkeitä, joilla on sama laji, kuin mikä on
+     * annettu parametrina.
+     *
      * @param valittulaji
      * @param pohjalista
      * @return lista liikkeitä valitun lajin mukaan
@@ -66,11 +66,11 @@ public class LiikevarastonKasittelija {
         }
         return liikkeetLajinMukaan;
     }
-    
+
     /**
-     * Metodi palauttaa listan liikkeitä, joiden alkutila on 
-     * sama kuin parametrina annetti tila.
-     * 
+     * Metodi palauttaa listan liikkeitä, joiden alkutila on sama kuin
+     * parametrina annetti tila.
+     *
      * @param tila
      * @param pohjalista
      * @return lista liikkeitä alkutilan mukaan
@@ -78,13 +78,13 @@ public class LiikevarastonKasittelija {
     public ArrayList<Liike> suodataTilanMukaan(Tila tila, ArrayList<Liike> pohjalista) {
         ArrayList<Liike> liikkeetTilanMukaan;
         liikkeetTilanMukaan = new ArrayList<Liike>();
-        
+
         for (Liike liike : pohjalista) {
             if (liike.getAlkutila().equals(tila)) {
                 liikkeetTilanMukaan.add(liike);
             }
         }
-        
+
         return liikkeetTilanMukaan;
     }
 
@@ -92,15 +92,11 @@ public class LiikevarastonKasittelija {
      * Metodi lukee liikevarasto-tiedostoa. Metodi muuntaa tiedostossa olevien
      * liikkeiden ominaisuudet sopivan- tyyppisiksi, ja luo niiden perusteella
      * uusia Liike-olioita, jotka lisätään tämän luokan listaan.
+     * @throws java.lang.Exception
      */
-    public void lue() {
+    public void lue() throws Exception {
 
-        try {
-            lukija = new Scanner(tiedosto);
-        } catch (Exception e) {
-            System.out.println("Tiedoston lukeminen epäonnistui. Virhe: " + e.getMessage());
-            return;
-        }
+        lukija = new Scanner(tiedosto);
 
         while (lukija.hasNextLine()) {
             String rivi = lukija.nextLine();

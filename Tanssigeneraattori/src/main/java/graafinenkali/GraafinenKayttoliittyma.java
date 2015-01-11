@@ -1,8 +1,8 @@
 package graafinenkali;
 
-import kayttoliittymanapu.KoreografianLukija;
 import kayttoliittymanapu.Taulukontekija;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -20,6 +20,7 @@ public class GraafinenKayttoliittyma implements Runnable {
     private Taulukontekija taulukoija;
     private Koreografia koreografia;
     private LiikelistaSuodatin suodatin;
+    private Exception ex;
 
     public GraafinenKayttoliittyma(LiikevarastonKasittelija kasittelija) {
         this.kasittelija = kasittelija;
@@ -27,10 +28,14 @@ public class GraafinenKayttoliittyma implements Runnable {
         this.koreografia = new Koreografia("Tanssin nimi");
     }
 
+    public void naytaVirheilmoitus(Exception ex) {
+        this.ex = ex;
+    }
+
     @Override
     public void run() {
         frame = new JFrame("Tanssigeneraattori");
-        frame.setPreferredSize(new Dimension(500, 500));
+        frame.setPreferredSize(new Dimension(700, 500));
         frame.setMinimumSize(new Dimension(300, 300));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -52,7 +57,7 @@ public class GraafinenKayttoliittyma implements Runnable {
      */
     private void luoKomponentit(Container container) {
 
-        JPanel paneeli1 = new JPanel(new GridLayout(1, 2));
+        JPanel ylapaneeli = new JPanel(new GridLayout(1, 2));
 
         //Drop down -valikko tanssilajeista
         ArrayList<Tanssilaji> tanssilajilista = kasittelija.annaTanssilajit();
@@ -65,11 +70,11 @@ public class GraafinenKayttoliittyma implements Runnable {
         //Palkki tanssin nimen syöttämiseen
         JTextField nimenvalintapalkki = new JTextField("Tanssin nimi", 20);
 
-        paneeli1.add(tanssivalikko);
-        paneeli1.add(nimenvalintapalkki);
+        ylapaneeli.add(tanssivalikko);
+        ylapaneeli.add(nimenvalintapalkki);
 
-        JPanel paneeli2 = new JPanel();
-        paneeli2.setLayout(new BoxLayout(paneeli2, BoxLayout.LINE_AXIS));
+        JPanel keskipaneeli = new JPanel();
+        keskipaneeli.setLayout(new BoxLayout(keskipaneeli, BoxLayout.LINE_AXIS));
 
         //Luo skrollivalikon liikkeistä
         ArrayList<Liike> liikkeet = kasittelija.annaLiikevalikoima();
@@ -98,11 +103,18 @@ public class GraafinenKayttoliittyma implements Runnable {
 
         napit.add(lisaysnappi);
         napit.add(poistonappi);
-        paneeli2.add(liikevalikko);
-        paneeli2.add(napit);
-        paneeli2.add(koreografiaesitysSkrolli);
+        keskipaneeli.add(liikevalikko);
+        keskipaneeli.add(napit);
+        keskipaneeli.add(koreografiaesitysSkrolli);
 
-        JPanel paneeli3 = new JPanel(new FlowLayout(FlowLayout.TRAILING));
+        JPanel alapaneeli = new JPanel(new FlowLayout(FlowLayout.TRAILING));
+
+        JLabel virhekentta = new JLabel();
+        alapaneeli.add(virhekentta);
+        if (this.ex != null) {
+            virhekentta.setText("Liikevaraston lukeminen epäonnistui");
+            virhekentta.setForeground(Color.red);
+        }
 
         JButton arvontanappi = new JButton("Random!");
         JButton latausnappi = new JButton("Lataa");
@@ -110,10 +122,10 @@ public class GraafinenKayttoliittyma implements Runnable {
         JButton tallennusnappi = new JButton("Tallenna");
         tallennusnappi.setEnabled(true);
 
-        paneeli3.add(latausnappi);
-        paneeli3.add(arvontanappi);
-        paneeli3.add(kesto);
-        paneeli3.add(tallennusnappi);
+        alapaneeli.add(latausnappi);
+        alapaneeli.add(arvontanappi);
+        alapaneeli.add(kesto);
+        alapaneeli.add(tallennusnappi);
 
         suodatin = new LiikelistaSuodatin(tanssivalikko,
                 taulukoija, kasittelija, liikelista);
@@ -141,12 +153,12 @@ public class GraafinenKayttoliittyma implements Runnable {
                 koreografia, koreografiaEsitys, nimenvalintapalkki);
         nimenvalintapalkki.addActionListener(nimeaja);
 
-        TallennuksenKuuntelija tallennuskuuntelija = new TallennuksenKuuntelija(koreografia, frame);
+        TallennuksenKuuntelija tallennuskuuntelija = new TallennuksenKuuntelija(koreografia, frame, virhekentta);
         tallennusnappi.addActionListener(tallennuskuuntelija);
 
-        container.add(paneeli1, BorderLayout.NORTH);
-        container.add(paneeli2, BorderLayout.CENTER);
-        container.add(paneeli3, BorderLayout.SOUTH);
+        container.add(ylapaneeli, BorderLayout.NORTH);
+        container.add(keskipaneeli, BorderLayout.CENTER);
+        container.add(alapaneeli, BorderLayout.SOUTH);
 
     }
 

@@ -58,7 +58,7 @@ public class LiikevarastonKasittelijaTest {
     }
     
     @Test
-    public void lueMetodiLisaaLiikkeitaLiikevalikoimaan() {
+    public void lueMetodiLisaaLiikkeitaLiikevalikoimaan() throws Exception {
         kasittelija.lue();
         assertFalse(kasittelija.annaLiikevalikoima().isEmpty()); 
         assertFalse(kasittelija.annaTanssilajit().isEmpty());

@@ -26,5 +26,5 @@
 * 7.1.   4h dokumentaation päivittämistä
 * 8.1.   5h demotilaisuus, katselmointi 2
 * 10.1.  3h lataustoiminnon tekeminen ja muuta viimeistelyä
-* 11.1.  2h kuvausten kirjoittamista ja muuta viimeistelyä
+* 11.1.  4h kuvausten kirjoittamista ja muuta viimeistelyä
 
