@@ -12,14 +12,14 @@ Kaikkien käyttäjien toiminnot:
 * tanssin nimen lisääminen
 * koreografian ja nimen satunnaisgenerointi
 * valmiin koreografian tallentaminen tiedostoon
+* valmiin koreografian tiedostosta lataaminen ja muokkaaminen
 
 
 Mahdollisia tulevia laajennuksia:
 
 * Yksittäisten liike-elementtien yhdisteleminen liikesarjoiksi, jotka voi katkaista keskeltä
 * Uusien liikkeiden luominen
-* Luodun koreografian lataaminen ja muokkaaminen
-* Musiikin fraasien mallintaminen
+* Musiikin fraasien mallintaminen luokkana
 
 
 

@@ -1,17 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package liikkeidenmallinnus;
 
-import liikkeidenmallinnus.LiikeElementti;
-import liikkeidenmallinnus.Tila;
-import liikkeidenmallinnus.Tanssilaji;
-import liikkeidenmallinnus.Koreografia;
-import liikkeidenmallinnus.Liikesarja;
 import static liikkeidenmallinnus.Liikesarja.TYHJA_TILA;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -98,12 +87,8 @@ public class KoreografiaTest {
         assertEquals(this.koreografia.getNimi(), "Koreografia");
         assertEquals(this.koreografia.annaKoreografiaTekstina(), "Koreografia\n\n");
         assertTrue(this.koreografia.lisaaLiike(liikeEle));
-        assertEquals(this.koreografia.annaKoreografiaTekstina(), "Koreografia\n\nele ");
+        assertEquals(this.koreografia.annaKoreografiaTekstina(), "Koreografia\n\nele\n");
         assertTrue(this.koreografia.lisaaLiike(liikeEle2));
-        assertEquals(this.koreografia.annaKoreografiaTekstina(), "Koreografia\n\nele ele2\n");
-        assertTrue(this.koreografia.lisaaLiike(liikeEle));
-        assertEquals(this.koreografia.annaKoreografiaTekstina(), "Koreografia\n\nele ele2\nele ");
-        assertTrue(this.koreografia.lisaaLiike(liikeEle2));
-        assertEquals(this.koreografia.annaKoreografiaTekstina(), "Koreografia\n\nele ele2\nele ele2\n");
+        assertEquals(this.koreografia.annaKoreografiaTekstina(), "Koreografia\n\nele\nele2\n");
     }
 }

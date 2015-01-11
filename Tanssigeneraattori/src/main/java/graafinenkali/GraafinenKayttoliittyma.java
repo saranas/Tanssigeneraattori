@@ -115,7 +115,7 @@ public class GraafinenKayttoliittyma implements Runnable {
         paneeli3.add(kesto);
         paneeli3.add(tallennusnappi);
 
-        suodatin = new LiikelistaSuodatin(tanssivalikko, 
+        suodatin = new LiikelistaSuodatin(tanssivalikko,
                 taulukoija, kasittelija, liikelista);
 
         LatauksenKuuntelija lataaja = new LatauksenKuuntelija(suodatin, kasittelija,
@@ -141,8 +141,7 @@ public class GraafinenKayttoliittyma implements Runnable {
                 koreografia, koreografiaEsitys, nimenvalintapalkki);
         nimenvalintapalkki.addActionListener(nimeaja);
 
-        TallennuksenKuuntelija tallennuskuuntelija
-                = new TallennuksenKuuntelija(koreografia, frame);
+        TallennuksenKuuntelija tallennuskuuntelija = new TallennuksenKuuntelija(koreografia, frame);
         tallennusnappi.addActionListener(tallennuskuuntelija);
 
         container.add(paneeli1, BorderLayout.NORTH);

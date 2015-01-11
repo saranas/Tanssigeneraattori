@@ -1,25 +1,14 @@
-Aihe: Tanssigeneraattori
+# Rakennekuvaus
 
-Toteutetaan ohjelma, jolla käyttäjä voi valita ja asettaa peräkkäin tanssiliikkeitä, joilla on tietty kesto ja ehtoja sijoittelusta muihin liikkeisiin nähden. Liikevalikoima vaihtelee valitun tanssilajin mukaan, mutta eri tanssilajien liikkeiden sisällyttäminen samaan koreografiaan on mahdollista. Koreografia voidaan myös generoida satunnaisesti.
+Liike-rajapinnan toteuttaa kaksi luokkaa: LiikeElementti ja Liikesarja. LiikeElementti on yksinkertainen palikka, joita yhdistelemällä voi rakentaa monimutkaisempia kokonaisuuksia. Liikesarja on luokka, joka on tehty säilömään listaan Liike-rajapinnan toteuttavia olioita. Koska Liikesarja toteuttaa itsekin rajapinnan, tämä mahdollistaa kokonaisten Liikesarjojen lisäämisen listaan. Liikesarjan toiminnallisuus on hyvin samankaltainen kuin mitä tarvitaan Koreografiassa, joten Koreografia käyttää Liikesarjaa koreografian säilömiseen.
 
-Käyttäjät: Ohjelmasta kiinnostuneet yksityishenkilöt
+Liikkeeseen liittyy kaksi Tilaa: alkutila ja lopputila. Lisäksi liikkeeseen liittyy yksi Tanssilaji. Liikkeitä voi lisätä Koreografiaan rajattoman paljon.
 
-Kaikkien käyttäjien toiminnot:
+LiikevarastonKasittelija on olennainen sovelluslogiikkaluokka, joka lukee liikkeitä varastoivaa tiedostoa ja luo sen pohjalta LiikeElementti-olioita. Luokka säilöö valikomassa olevat liikkeet listaan ja tarjoaa metodeja listaan käsiksi pääsemiseksi.
 
-* tanssilajin valinta
-* liikevalikoiman selaaminen
-* liikkeiden valinta ja lisääminen koreografiaan
-* tanssin nimen lisääminen
-* koreografian ja nimen satunnaisgenerointi
-* valmiin koreografian tallentaminen tiedostoon
+Graafisen käyttöliittymän luokat ovat enimmäkseen kuuntelijoita, jotka liittyvät pääluokassa GraafinenKayttoliittyma luotuihin painikkeisiin ja listoihin.
 
-
-Mahdollisia tulevia laajennuksia:
-
-* Yksittäisten liike-elementtien yhdisteleminen liikesarjoiksi, jotka voi katkaista keskeltä
-* Uusien liikkeiden luominen
-* Luodun koreografian lataaminen ja muokkaaminen
-* Musiikin fraasien mallintaminen
+Käyttöliittymällä on useita apuluokkia kayttoliittymanapu-pakkauksessa. Niiden pääasiallinen tehtävä on toimia työkaluina graafisen käyttöliittymän kuuntelijoille. Pakkauksessa on myös luokka tekstikäyttöliittymää varten.
 
 
 
